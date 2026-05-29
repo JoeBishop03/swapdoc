@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwapDoc — Word ⇄ PDF Converter</title>
+
+<!-- ===== GOOGLE ADSENSE (replace ca-pub-XXXX with your publisher ID) ===== -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10100e;
+    --paper:#f4f1ea;
+    --accent:#e8513f;
+    --accent2:#1f6f5c;
+    --line:#cfc8b8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Spline Sans Mono",monospace;
+    min-height:100vh;
+    background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.05) 1px,transparent 0);
+    background-size:22px 22px;
+    display:flex;flex-direction:column;
+  }
+  header{
+    border-bottom:2px solid var(--ink);
+    padding:18px 28px;display:flex;align-items:baseline;gap:14px;
+  }
+  header h1{
+    font-family:"Fraunces",serif;font-weight:900;font-size:1.9rem;letter-spacing:-.5px;
+  }
+  header .tag{font-size:.78rem;color:var(--accent2);}
+  .wrap{flex:1;display:grid;grid-template-columns:1fr minmax(320px,560px) 1fr;gap:24px;padding:40px 28px;align-items:start;}
+  @media(max-width:980px){.wrap{grid-template-columns:1fr;}}
+  .ad-rail{position:sticky;top:24px;min-height:300px;border:1px dashed var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#9a917f;text-align:center;padding:12px;}
+  .card{
+    background:#fffdf8;border:2px solid var(--ink);
+    box-shadow:8px 8px 0 var(--ink);padding:34px;
+  }
+  .hero{font-family:"Fraunces",serif;font-weight:700;font-size:2.2rem;line-height:1.05;margin-bottom:8px;}
+  .hero em{color:var(--accent);font-style:italic;}
+  .sub{font-size:.85rem;color:#6c6555;margin-bottom:26px;}
+  .drop{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:6px;min-height:140px;
+    border:2px dashed var(--ink);padding:32px 20px;text-align:center;cursor:pointer;
+    transition:.15s;background:var(--paper);position:relative;
+  }
+  .drop.drag{background:#fbe9e5;border-color:var(--accent);}
+  .drop .dz-title{font-family:"Fraunces",serif;font-weight:700;font-size:1.15rem;color:var(--ink);line-height:1.2;}
+  .drop .dz-hint{font-size:.78rem;color:#8a8273;line-height:1.3;}
+  /* bulletproof hide: keeps input clickable via the label, never paints a box */
+  #file{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0;opacity:0;}
+  .filename{margin-top:16px;font-size:.82rem;word-break:break-all;}
+  .btn{
+    margin-top:20px;width:100%;border:none;background:var(--ink);color:var(--paper);
+    font-family:"Spline Sans Mono";font-size:.95rem;padding:16px;cursor:pointer;
+    letter-spacing:.5px;transition:.15s;
+  }
+  .btn:hover{background:var(--accent);}
+  .btn:disabled{opacity:.45;cursor:not-allowed;}
+  .status{margin-top:16px;font-size:.8rem;min-height:1.2em;}
+  .status.err{color:var(--accent);}
+  .status.ok{color:var(--accent2);}
+  .badges{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap;font-size:.72rem;color:#6c6555;}
+  .badges>div{flex:1 1 130px;}
+  .badges b{color:var(--ink);}
+  footer{border-top:2px solid var(--ink);padding:16px 28px;font-size:.72rem;color:#6c6555;}
+  .spin{display:inline-block;width:12px;height:12px;border:2px solid var(--ink);border-top-color:transparent;border-radius:50%;animation:s .7s linear infinite;vertical-align:middle;margin-right:6px;}
+  @keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>SwapDoc</h1>
+  <span class="tag">word ⇄ pdf, instantly</span>
+</header>
+
+<div class="wrap">
+
+  <!-- LEFT AD -->
+  <aside class="ad-rail">
+    <ins class="adsbygoogle" style="display:block;width:100%;height:300px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="0000000000"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+
+  <main class="card">
+    <div class="hero">Convert <em>Word</em> &amp; <em>PDF</em><br>in one click.</div>
+    <p class="sub">Drop a .docx, .doc or .pdf. We convert it, you download it, then the file is deleted from our servers. No account, no storage.</p>
+
+    <label class="drop" id="drop">
+      <span class="dz-title">Drop your file here</span>
+      <span class="dz-hint">or click to browse — docx, doc, pdf (max 25 MB)</span>
+      <input type="file" id="file" accept=".docx,.doc,.pdf">
+    </label>
+
+    <div class="filename" id="fname"></div>
+    <button class="btn" id="go" disabled>Convert &amp; Download</button>
+    <div class="status" id="status"></div>
+
+    <div class="badges">
+      <div><b>↯ Auto-delete</b><br>removed after download</div>
+      <div><b>⏱ Fast</b><br>powered by LibreOffice</div>
+      <div><b>⌁ Private</b><br>no sign-up needed</div>
+    </div>
+  </main>
+
+  <!-- RIGHT AD -->
+  <aside class="ad-rail">
+    <ins class="adsbygoogle" style="display:block;width:100%;height:300px"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1111111111"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </aside>
+</div>
+
+<footer>© <span id="yr"></span> SwapDoc · Uploaded files are deleted immediately after conversion and download. We do not keep copies.</footer>
+
+<script>
+  const drop=document.getElementById('drop'),
+        input=document.getElementById('file'),
+        fname=document.getElementById('fname'),
+        go=document.getElementById('go'),
+        status=document.getElementById('status');
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  let chosen=null;
+
+  function setFile(f){
+    chosen=f;
+    if(f){fname.textContent='Selected: '+f.name; go.disabled=false; status.textContent=''; status.className='status';}
+  }
+  input.addEventListener('change',e=>setFile(e.target.files[0]));
+  ['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag');}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag');}));
+  drop.addEventListener('drop',e=>{if(e.dataTransfer.files[0])setFile(e.dataTransfer.files[0]);});
+
+  go.addEventListener('click',async()=>{
+    if(!chosen)return;
+    go.disabled=true;
+    status.className='status';
+    status.innerHTML='<span class="spin"></span>Converting…';
+    const fd=new FormData(); fd.append('file',chosen);
+    try{
+      const r=await fetch('/convert',{method:'POST',body:fd});
+      if(!r.ok){
+        let msg='Conversion failed';
+        try{msg=(await r.json()).error||msg;}catch(_){}
+        status.textContent=msg; status.className='status err'; go.disabled=false; return;
+      }
+      const blob=await r.blob();
+      const cd=r.headers.get('Content-Disposition')||'';
+      const m=cd.match(/filename="?([^"]+)"?/);
+      const name=m?m[1]:'converted';
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a'); a.href=url; a.download=name; a.click();
+      URL.revokeObjectURL(url);
+      status.textContent='Done — your download has started. File deleted from server.';
+      status.className='status ok';
+    }catch(err){
+      status.textContent='Network error, please try again.'; status.className='status err';
+    }
+    go.disabled=false;
+  });
+</script>
+</body>
+</html>
