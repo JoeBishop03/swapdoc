@@ -4,6 +4,8 @@ import time
 import threading
 import subprocess
 from flask import Flask, request, render_template, send_file, jsonify, after_this_request
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 
@@ -12,9 +14,38 @@ OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "/tmp/outputs")
 MAX_AGE_SECONDS = 600          # files older than this get swept regardless
 MAX_CONTENT_LENGTH = 25 * 1024 * 1024  # 25 MB upload cap
 
+# How many conversions one visitor may do. Adjust freely (env-overridable).
+# Two limits apply together: a short burst cap and an hourly cap.
+RATE_LIMITS = os.environ.get("RATE_LIMITS", "5 per minute;30 per hour")
+
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 app.config["MAX_CONTENT_LENGTH"] = MAX_CONTENT_LENGTH
+
+
+def client_ip():
+    """Real visitor IP. Behind Azure Container Apps' ingress the original
+    client address is in X-Forwarded-For (first entry); remote_addr would
+    otherwise be the proxy, lumping all users together."""
+    xff = request.headers.get("X-Forwarded-For", "")
+    if xff:
+        return xff.split(",")[0].strip()
+    return get_remote_address()
+
+
+limiter = Limiter(
+    key_func=client_ip,
+    app=app,
+    default_limits=[],          # only the endpoints we mark are limited
+    storage_uri="memory://",    # per-replica counts; see note in deploy guide
+)
+
+
+@app.errorhandler(429)
+def ratelimit_handler(e):
+    # Frontend reads .error from JSON, so return JSON it can display.
+    return jsonify(error="You've reached the conversion limit. "
+                         "Please wait a little and try again."), 429
 
 ALLOWED = {
     "docx": "pdf",
@@ -86,6 +117,7 @@ def healthz():
 
 
 @app.route("/convert", methods=["POST"])
+@limiter.limit(RATE_LIMITS)
 def convert():
     if "file" not in request.files:
         return jsonify(error="No file uploaded"), 400
