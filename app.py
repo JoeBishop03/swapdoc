@@ -129,6 +129,13 @@ def robots():
     return Response(body, mimetype="text/plain")
 
 
+@app.route("/ads.txt")
+def ads_txt():
+    # Declares to AdSense that this publisher ID may sell ads on this domain.
+    body = "google.com, pub-5734256894506579, DIRECT, f08c47fec0942fa0\n"
+    return Response(body, mimetype="text/plain")
+
+
 @app.route("/sitemap.xml")
 def sitemap():
     pages = ["/", "/privacy"]
