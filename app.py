@@ -3,7 +3,7 @@ import uuid
 import time
 import threading
 import subprocess
-from flask import Flask, request, render_template, send_file, jsonify, after_this_request
+from flask import Flask, request, render_template, send_file, jsonify, after_this_request, Response
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
@@ -114,6 +114,32 @@ def index():
 @app.route("/privacy")
 def privacy():
     return render_template("privacy.html")
+
+
+SITE = "https://www.swapdoc.co.uk"
+
+
+@app.route("/robots.txt")
+def robots():
+    body = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        f"Sitemap: {SITE}/sitemap.xml\n"
+    )
+    return Response(body, mimetype="text/plain")
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    pages = ["/", "/privacy"]
+    urls = "".join(
+        f"<url><loc>{SITE}{p}</loc><changefreq>monthly</changefreq></url>"
+        for p in pages
+    )
+    body = ('<?xml version="1.0" encoding="UTF-8"?>'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+            f'{urls}</urlset>')
+    return Response(body, mimetype="application/xml")
 
 
 @app.route("/healthz")
