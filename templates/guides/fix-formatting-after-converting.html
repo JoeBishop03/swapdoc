@@ -1,0 +1,84 @@
+{% extends "guide_base.html" %}
+{% block article %}
+<p class="lede">Most conversions between Word and PDF come out looking right. When they
+don't, it's nearly always one of a handful of causes. Find your problem below for the cause
+and the quickest fix.</p>
+
+<h2>Word to PDF problems</h2>
+
+<h3>The font looks different</h3>
+<p><strong>Why:</strong> a converter can only use fonts installed on the computer doing the
+conversion. If your document uses a font that isn't there, a similar one is used instead,
+which can change spacing and push text onto extra pages.</p>
+<p><strong>Fix:</strong> use widely available fonts such as Arial, Calibri, Cambria, Georgia,
+Times New Roman or Verdana. If you must keep a special font, make the PDF on your own
+computer using <strong>File → Save As → PDF</strong> in Word, which uses your installed fonts
+(see <a href="/guides/convert-word-to-pdf">How to convert Word to PDF</a>).</p>
+
+<h3>There's an extra blank page</h3>
+<p><strong>Why:</strong> usually an empty paragraph or a page break at the very end of the
+document, or a table that ends at the bottom of a page (Word always puts a paragraph after
+a table).</p>
+<p><strong>Fix:</strong> in Word, click <strong>Home → ¶</strong> (Show/Hide) to see hidden
+marks, then delete empty paragraphs and page breaks at the end. If the culprit is the
+paragraph after a table, select it and set its font size to 1.</p>
+
+<h3>Pictures have moved</h3>
+<p><strong>Why:</strong> pictures set to float "in front of" or "behind" text are positioned
+relative to a paragraph. If the text reflows slightly, the picture moves with it.</p>
+<p><strong>Fix:</strong> right-click the picture, choose <strong>Wrap Text → In Line with
+Text</strong>, and position it with normal paragraph alignment. In-line pictures stay put.</p>
+
+<h3>Text runs off the edge or a table is cut off</h3>
+<p><strong>Why:</strong> a table or picture is wider than the page margins.</p>
+<p><strong>Fix:</strong> select the table, then <strong>Layout → AutoFit → AutoFit Window</strong>.
+For pictures, resize them to fit inside the margins.</p>
+
+<h2>PDF to Word problems</h2>
+
+<h3>Everything is in separate text boxes</h3>
+<p><strong>Why:</strong> a PDF records where each line sits on the page, not which lines
+belong together. To keep the look, the converter sometimes places text in positioned
+boxes.</p>
+<p><strong>Fix:</strong> for short documents, it's often quickest to select all
+(<strong>Ctrl + A</strong>, or <strong>Cmd + A</strong> on a Mac), copy, and paste into a new
+document with <strong>Paste → Keep Text Only</strong>. Then re-apply headings and bold
+text. For long documents, try opening the PDF directly in Word, which uses a different
+method and may give a cleaner result for some files.</p>
+
+<h3>Lines break in the middle of sentences</h3>
+<p><strong>Why:</strong> each line of the PDF was turned into its own paragraph.</p>
+<p><strong>Fix:</strong> use <strong>Replace</strong> (<strong>Ctrl + H</strong>). In
+<em>Find what</em> type <code>^p</code> and in <em>Replace with</em> type a space to join
+lines. To keep real paragraph breaks, first replace <code>^p^p</code> with a placeholder
+like <code>###</code>, then replace <code>^p</code> with a space, then replace
+<code>###</code> with <code>^p</code>.</p>
+
+<h3>Tables come out as loose text</h3>
+<p><strong>Why:</strong> some PDFs draw tables as separate lines and text, with no table
+behind them.</p>
+<p><strong>Fix:</strong> if the columns are separated by tabs or spaces, select the text and
+use <strong>Insert → Table → Convert Text to Table</strong>. For a large table, copying it
+into a spreadsheet first can be easier.</p>
+
+<h3>Strange characters or missing letters</h3>
+<p><strong>Why:</strong> some PDFs use fonts that don't record which character each shape
+represents, so the converter can't tell which letter is which.</p>
+<p><strong>Fix:</strong> treat the PDF like a scan and use text recognition (OCR). Our guide to
+<a href="/guides/convert-pdf-to-word">turning a PDF into an editable Word document</a>
+shows a free way to do it with Google Docs.</p>
+
+<h3>The text can't be edited at all</h3>
+<p><strong>Why:</strong> the PDF is a scan or a photo, so each page is a picture.</p>
+<p><strong>Fix:</strong> use OCR, as above.</p>
+
+<h2>Habits that prevent most problems</h2>
+<ul>
+  <li>Build documents with Word's styles (Heading 1, Heading 2, Normal) rather than manual
+  formatting.</li>
+  <li>Keep pictures "In Line with Text" unless you really need them to float.</li>
+  <li>Use common fonts for anything you'll share or convert.</li>
+  <li>Always keep the original Word file. Editing the original and making a fresh PDF is
+  better than converting a PDF back and forth.</li>
+</ul>
+{% endblock %}

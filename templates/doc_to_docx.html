@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% from "macros.html" import ad, converter, guide_cards with context %}
+
+{% block structured_data %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ SITE }}/" },
+        { "@type": "ListItem", "position": 2, "name": "DOC to DOCX", "item": "{{ SITE }}/doc-to-docx" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "SwapDoc DOC to DOCX converter",
+      "url": "{{ SITE }}/doc-to-docx",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any (web browser)",
+      "description": "Free online converter between the old Word format (.doc) and the modern one (.docx), in both directions. No sign-up or watermark.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I convert DOC to DOCX for free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Drop the .doc file into SwapDoc's DOC to DOCX converter and click Convert. The .docx downloads in a few seconds. No account is needed and the file is deleted after download." } },
+        { "@type": "Question", "name": "Can I convert DOCX back to DOC?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Drop a .docx into the same converter and you'll get a Word 97-2003 .doc file, for older software or Word 2003 and earlier." } },
+        { "@type": "Question", "name": "Will I lose anything converting DOCX to DOC?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ordinary text, tables, pictures, headers and footers are kept. Features newer than Word 2003, such as some text effects, content controls and modern charts, may be simplified or turned into pictures." } },
+        { "@type": "Question", "name": "Are macros kept?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Don't rely on it. Macros may not survive the conversion, so keep your original file if it contains macros you need." } }
+      ]
+    }
+{% endblock %}
+
+{% block body %}
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>DOC to DOCX</span></nav>
+  {{ converter('<em>DOC</em> ⇄ <em>DOCX</em>,<br>both ways.',
+               'Upgrade an old Word 97-2003 <code>.doc</code> to a modern <code>.docx</code>, or save a <code>.docx</code> as <code>.doc</code> for older software. Free, no sign-up, and your file is deleted after download.',
+               accept='.doc,.docx', hint='doc or docx', button='Convert', mode='word-format') }}
+  {{ ad(AD_SLOT_TOP) }}
+</div>
+
+<div class="content">
+  <section>
+    <h2>Which way do you need?</h2>
+    <div class="pick-grid">
+      <div class="pick-card">
+        <span class="pick-title">DOC → DOCX</span>
+        <span>Drop a <code>.doc</code>. You get a modern <code>.docx</code>: smaller, safer, and it opens
+        without Word's "Compatibility Mode". Best for old files you want to keep using.</span>
+      </div>
+      <div class="pick-card">
+        <span class="pick-title">DOCX → DOC</span>
+        <span>Drop a <code>.docx</code>. You get a Word 97-2003 <code>.doc</code>, for old business
+        software, upload forms that only accept <code>.doc</code>, or someone on Word 2003.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to convert DOC to DOCX (or back)</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><p><strong>Drop your Word file in the box.</strong>
+      Or click to choose it. <code>.doc</code> and <code>.docx</code> files up to 25&nbsp;MB.</p></div>
+      <div class="step"><div class="num">2</div><p><strong>Click Convert.</strong>
+      SwapDoc spots which format you have and converts it to the other one.</p></div>
+      <div class="step"><div class="num">3</div><p><strong>Open and check.</strong>
+      The new file downloads with the same name and the new extension. Scroll through it before
+      you send it on.</p></div>
+    </div>
+  </section>
+
+  {{ ad(AD_SLOT_CONTENT) }}
+
+  <section>
+    <h2>What to expect</h2>
+    <h3>DOC to DOCX</h3>
+    <p>This direction is the easy one: <code>.docx</code> can hold everything a <code>.doc</code> can,
+    so text, tables, pictures, headers, footers and comments all come across. Occasionally line
+    spacing or a page break moves slightly, because newer Word lays documents out with updated
+    rules.</p>
+    <h3>DOCX to DOC</h3>
+    <p><code>.doc</code> is a 2003-era format, so anything newer has to be simplified. Ordinary
+    documents convert fine. Features to check afterwards:</p>
+    <ul>
+      <li>text effects such as glow, shadows and gradient fills;</li>
+      <li>content controls (fill-in boxes and drop-down lists in forms);</li>
+      <li>modern charts, SmartArt and icons, which may become plain pictures;</li>
+      <li>fonts the old format handles differently, especially in headings.</li>
+    </ul>
+    <p>If something looks wrong, our guide to
+    <a href="/guides/fix-formatting-after-converting">fixing formatting after converting</a>
+    covers the usual causes.</p>
+  </section>
+
+  <section>
+    <h2>DOC to DOCX questions</h2>
+    <dl class="faq">
+      <dt>How do I convert DOC to DOCX for free?</dt>
+      <dd>Drop the <code>.doc</code> into the box above and click Convert. No account needed, and the
+      file is deleted after download.</dd>
+      <dt>Can I convert DOCX back to DOC?</dt>
+      <dd>Yes, with the same box. Drop a <code>.docx</code> and you'll get a Word 97-2003
+      <code>.doc</code>.</dd>
+      <dt>Will I lose anything converting DOCX to DOC?</dt>
+      <dd>Ordinary content is kept. Features newer than Word 2003 may be simplified (see above).</dd>
+      <dt>Are macros kept?</dt>
+      <dd>Don't rely on it. Keep your original file if it contains macros you need.</dd>
+      <dt>Is it safe to upload my document?</dt>
+      <dd>Files are sent over an encrypted connection, converted, and deleted as soon as your download
+      finishes. Nobody reads them. See our <a href="/privacy">Privacy Policy</a>.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Learn more</h2>
+    <p>Not sure which format you need? <a href="/guides/doc-vs-docx">DOC vs DOCX: what's the
+    difference?</a> explains both{% if guide_live('google-docs-vs-docx') %}, and
+    <a href="/guides/google-docs-vs-docx">Google Docs vs DOCX</a> covers moving files between Word
+    and Google Docs{% endif %}. Need a PDF instead? Use the <a href="/word-to-pdf">Word to PDF
+    converter</a>.</p>
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}<script nonce="{{ csp_nonce() }}" src="/static/js/convert.js?v={{ v }}" defer></script>{% endblock %}

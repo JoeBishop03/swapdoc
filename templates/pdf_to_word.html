@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% from "macros.html" import ad, converter, guide_cards with context %}
+
+{% block structured_data %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ SITE }}/" },
+        { "@type": "ListItem", "position": 2, "name": "PDF to Word", "item": "{{ SITE }}/pdf-to-word" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Will the Word document look exactly like the PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually close, but not always identical. A PDF stores where each line sits on the page, not paragraphs and styles, so the converter has to rebuild the document. Simple text documents convert well; complex layouts may come back as text boxes that need tidying." } },
+        { "@type": "Question", "name": "Can I convert a scanned PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A scanned PDF is a picture of a page, so it converts into a Word file containing that picture rather than editable text. To get editable text from a scan you need OCR (text recognition)." } },
+        { "@type": "Question", "name": "Can I convert a password-protected PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Remove the password first in the program you normally open it with, if you're allowed to, then convert the unlocked copy." } },
+        { "@type": "Question", "name": "What format is the Word file?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You get a .docx file, which opens in Microsoft Word 2007 or later, Google Docs, Apple Pages and LibreOffice." } }
+      ]
+    }
+{% endblock %}
+
+{% block body %}
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>PDF to Word</span></nav>
+  {{ converter('<em>PDF</em> to Word,<br>ready to edit.',
+               'Turn a PDF into an editable Word document (.docx). No sign-up, no watermark, and your file is deleted after download.',
+               accept='.pdf', hint='pdf', button='Convert to Word') }}
+  {{ ad(AD_SLOT_TOP) }}
+</div>
+
+<div class="content">
+  <section>
+    <h2>Edit a PDF without retyping it</h2>
+    <p>PDFs are great for sharing but awkward to change. Converting a PDF to Word gives you a
+    normal <code>.docx</code> file you can edit in Microsoft Word, Google Docs, Apple Pages or
+    LibreOffice. Fix a typo in a letter, update last year's form, or reuse a few paragraphs
+    from a report, without copying and pasting line by line.</p>
+  </section>
+
+  <section>
+    <h2>How to convert PDF to Word with SwapDoc</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><p><strong>Drop your PDF in the box above.</strong>
+      Or click the box to choose it. Files up to 25&nbsp;MB are supported.</p></div>
+      <div class="step"><div class="num">2</div><p><strong>Click Convert to Word.</strong>
+      SwapDoc rebuilds the pages as an editable Word document. This usually takes a few
+      seconds, longer for long documents.</p></div>
+      <div class="step"><div class="num">3</div><p><strong>Open and tidy up.</strong>
+      Open the <code>.docx</code> in Word and check the layout. Simple documents are usually
+      ready to go; complex ones may need a few minutes of tidying.</p></div>
+    </div>
+  </section>
+
+  {{ ad(AD_SLOT_CONTENT) }}
+
+  <section>
+    <h2>What to expect</h2>
+    <p>A PDF doesn't really contain paragraphs, headings or tables. It records where each
+    line and image sits on the page. To make an editable document, the converter has to work
+    out the structure again, so results depend on how the PDF was made.</p>
+    <h3>Converts well</h3>
+    <p>PDFs saved from Word or another word processor: letters, reports, essays and CVs
+    with mostly plain text.</p>
+    <h3>May need tidying</h3>
+    <p>Magazine-style layouts, multiple columns, complex tables and designed brochures. These
+    often come back with text in separate boxes. Our guide to
+    <a href="/guides/fix-formatting-after-converting">fixing formatting after converting</a>
+    explains how to clean them up quickly.</p>
+    <h3>Won't become editable text</h3>
+    <p>Scanned documents and photos of pages. These are pictures of text, so the Word file
+    will contain the picture. To get editable text you need OCR (text recognition). Our
+    guide <a href="/guides/convert-pdf-to-word">How to turn a PDF into an editable Word
+    document</a> shows a free way to do that.</p>
+  </section>
+
+  <section>
+    <h2>PDF to Word questions</h2>
+    <dl class="faq">
+      <dt>Will the Word document look exactly like the PDF?</dt>
+      <dd>Usually close, but not always identical. Simple text documents convert well;
+      complex layouts may come back as text boxes that need tidying.</dd>
+      <dt>Can I convert a scanned PDF?</dt>
+      <dd>It will convert, but into a Word file containing a picture of each page rather than
+      editable text, because SwapDoc doesn't do text recognition (OCR).</dd>
+      <dt>Can I convert a password-protected PDF?</dt>
+      <dd>No. Remove the password first in the program you normally open it with, if you're
+      allowed to, then convert the unlocked copy.</dd>
+      <dt>What format is the Word file?</dt>
+      <dd>You get a <code>.docx</code> file, which opens in Microsoft Word 2007 or later,
+      Google Docs, Apple Pages and LibreOffice.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Need the opposite?</h2>
+    <p>Finished editing? Use the <a href="/word-to-pdf">Word to PDF converter</a> to turn it
+    back into a PDF for sending.</p>
+    {{ guide_cards(nav_guides[1:4]) }}
+  </section>
+</div>
+{% endblock %}
+
+{% block scripts %}<script nonce="{{ csp_nonce() }}" src="/static/js/convert.js?v={{ v }}" defer></script>{% endblock %}

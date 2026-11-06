@@ -1,0 +1,46 @@
+{% extends "page_base.html" %}
+{% block article %}
+<h1>About SwapDoc</h1>
+<p class="lede">SwapDoc is a free tool for converting documents between Word and PDF. It's
+an independent project, run from the UK, built to do one job well without getting in your
+way.</p>
+
+<h2>Why it exists</h2>
+<p>Most people only need to convert a document now and then: a CV that has to be a PDF, a
+form that arrived as a PDF and needs editing, an old <code>.doc</code> from years ago. Many
+converters online ask you to sign up, add watermarks, limit you to a couple of files a day
+or push you towards a subscription. SwapDoc doesn't. You drop a file in, you get the
+converted file back, and that's it.</p>
+
+<h2>How it works</h2>
+<p>When you upload a file, it's sent over an encrypted (HTTPS) connection to our server,
+hosted on Microsoft Azure in the UK. The server converts it using
+<a href="https://www.libreoffice.org/" rel="noopener">LibreOffice</a>, the free, open-source
+office suite, and sends the result straight back to your browser. Both your original and the
+converted file are deleted as soon as the download finishes. A clean-up process also
+removes anything left behind (for example, if you closed the page mid-conversion) within
+about ten minutes.</p>
+<p>Nobody reads your documents, and there's no account, so we never know who you are.</p>
+
+<h2>What it can and can't do</h2>
+<ul>
+  <li><strong>Word to PDF:</strong> <code>.docx</code> and <code>.doc</code> files.</li>
+  <li><strong>PDF to Word:</strong> PDFs to editable <code>.docx</code>.</li>
+  <li><strong>DOC ⇄ DOCX:</strong> old <code>.doc</code> files to <code>.docx</code>, and back.</li>
+  <li><strong>Up to 25 MB per file,</strong> with a fair-use limit on how many conversions one
+  person can do in a short time, to keep it fast for everyone.</li>
+  <li><strong>No text recognition (OCR) yet,</strong> so scanned PDFs won't become editable
+  text. Our <a href="/guides/convert-pdf-to-word">PDF to Word guide</a> explains a free way
+  to handle scans.</li>
+</ul>
+
+<h2>How it stays free</h2>
+<p>SwapDoc shows a small number of adverts from Google AdSense, which pay for the hosting.
+There are no paid plans and no premium features held back. Ads never appear inside your
+documents. Visitors in the UK and Europe are asked before any personalised advertising is
+used; see the <a href="/privacy">Privacy Policy</a> for details.</p>
+
+<h2>Get in touch</h2>
+<p>Found a file that won't convert properly, or have an idea? We'd like to hear it. See the
+<a href="/contact">Contact page</a>.</p>
+{% endblock %}

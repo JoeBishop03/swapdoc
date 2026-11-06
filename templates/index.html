@@ -1,35 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SwapDoc — Free Word to PDF & PDF to Word Converter (No Sign-up)</title>
-<meta name="description" content="Convert Word to PDF and PDF to Word free online. No account, no watermarks — files are deleted right after download. Fast, private .docx, .doc and .pdf conversion.">
-<link rel="canonical" href="https://www.swapdoc.co.uk/">
-<meta name="robots" content="index, follow">
+{% extends "base.html" %}
+{% from "macros.html" import ad, converter, guide_cards with context %}
 
-<!-- Open Graph (link previews on social / messaging) -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="SwapDoc">
-<meta property="og:title" content="SwapDoc — Free Word ⇄ PDF Converter">
-<meta property="og:description" content="Convert Word to PDF and PDF to Word free online. No account, no watermarks, files deleted after download.">
-<meta property="og:url" content="https://www.swapdoc.co.uk/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SwapDoc — Free Word ⇄ PDF Converter">
-<meta name="twitter:description" content="Convert Word to PDF and PDF to Word free online. No account, no watermarks, files deleted after download.">
-
-<!-- Structured data: describes the tool and the FAQ for richer search results -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
+{% block structured_data %},
     {
       "@type": "WebApplication",
       "name": "SwapDoc",
-      "url": "https://www.swapdoc.co.uk/",
-      "applicationCategory": "Utility",
-      "operatingSystem": "Any (web-based)",
-      "description": "Free online converter for Word to PDF and PDF to Word. No account, no watermarks, files deleted after download.",
+      "url": "{{ SITE }}/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any (web browser)",
+      "alternateName": "SwapDoc document converter",
+      "description": "Free online document converter for Word to PDF and PDF to Word. No account, no watermarks, files deleted after download.",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" }
     },
     {
@@ -38,196 +18,82 @@
         { "@type": "Question", "name": "Is SwapDoc free?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes. SwapDoc is completely free to use and supported by advertising." } },
         { "@type": "Question", "name": "Do I need to create an account?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. There is no sign-up — just upload a file and convert it." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "No. There is no sign-up. Just upload a file and convert it." } },
         { "@type": "Question", "name": "What happens to my files?",
-          "acceptedAnswer": { "@type": "Answer", "text": "They are deleted from our server as soon as your download completes, and a background process clears any leftovers shortly after. We keep no copies." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "They are deleted from our server as soon as your download completes, and a background process clears any leftovers within minutes. We keep no copies." } },
         { "@type": "Question", "name": "Which formats are supported?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Word to PDF (.docx and .doc) and PDF to Word (.pdf to .docx)." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "Word to PDF (.docx and .doc), PDF to Word (.pdf to .docx), and between the two Word formats (.doc to .docx and .docx to .doc)." } },
         { "@type": "Question", "name": "Why did my scanned PDF not convert into editable text?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Scanned PDFs are images of text rather than real text, so they cannot be reflowed into an editable Word document without optical character recognition (OCR), which SwapDoc does not currently perform." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "Scanned PDFs are pictures of text rather than real text, so they cannot be turned into editable Word text without optical character recognition (OCR), which SwapDoc does not currently do." } },
         { "@type": "Question", "name": "Is there a file size limit?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes, uploads are capped at 25 MB per file to keep conversions fast for everyone." } }
       ]
     }
-  ]
-}
-</script>
+{% endblock %}
 
-<!-- ===== GOOGLE ADSENSE ===== -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5734256894506579" crossorigin="anonymous"></script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#10100e;
-    --paper:#f4f1ea;
-    --accent:#e8513f;
-    --accent2:#1f6f5c;
-    --line:#cfc8b8;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Spline Sans Mono",monospace;
-    min-height:100vh;
-    background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.05) 1px,transparent 0);
-    background-size:22px 22px;
-    display:flex;flex-direction:column;
-  }
-  header{
-    border-bottom:2px solid var(--ink);
-    padding:18px 28px;display:flex;align-items:baseline;gap:14px;
-  }
-  header h1{
-    font-family:"Fraunces",serif;font-weight:900;font-size:1.9rem;letter-spacing:-.5px;
-  }
-  header .tag{font-size:.78rem;color:var(--accent2);}
-  .wrap{flex:1 0 auto;max-width:760px;width:100%;margin:0 auto;padding:40px 28px 0;}
-  .ad-inline{margin:28px auto 0;text-align:center;min-height:0;}
-  .ad-inline ins{display:block;}
-  .card{
-    background:#fffdf8;border:2px solid var(--ink);
-    box-shadow:8px 8px 0 var(--ink);padding:34px;
-  }
-  .hero{font-family:"Fraunces",serif;font-weight:700;font-size:2.2rem;line-height:1.05;margin-bottom:8px;}
-  .hero em{color:var(--accent);font-style:italic;}
-  .sub{font-size:.85rem;color:#6c6555;margin-bottom:26px;}
-  .drop{
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:6px;min-height:140px;
-    border:2px dashed var(--ink);padding:32px 20px;text-align:center;cursor:pointer;
-    transition:.15s;background:var(--paper);position:relative;
-  }
-  .drop.drag{background:#fbe9e5;border-color:var(--accent);}
-  .drop .dz-title{font-family:"Fraunces",serif;font-weight:700;font-size:1.15rem;color:var(--ink);line-height:1.2;}
-  .drop .dz-hint{font-size:.78rem;color:#8a8273;line-height:1.3;}
-  /* bulletproof hide: keeps input clickable via the label, never paints a box */
-  #file{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
-    clip:rect(0 0 0 0);white-space:nowrap;border:0;opacity:0;}
-  .filename{margin-top:16px;font-size:.82rem;word-break:break-all;}
-  .btn{
-    margin-top:20px;width:100%;border:none;background:var(--ink);color:var(--paper);
-    font-family:"Spline Sans Mono";font-size:.95rem;padding:16px;cursor:pointer;
-    letter-spacing:.5px;transition:.15s;
-  }
-  .btn:hover{background:var(--accent);}
-  .btn:disabled{opacity:.45;cursor:not-allowed;}
-  .status{margin-top:16px;font-size:.8rem;min-height:1.2em;}
-  .status.err{color:var(--accent);}
-  .status.ok{color:var(--accent2);}
-  .badges{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap;font-size:.72rem;color:#6c6555;}
-  .badges>div{flex:1 1 130px;}
-  .badges b{color:var(--ink);}
-  footer{border-top:2px solid var(--ink);padding:16px 28px;font-size:.72rem;color:#6c6555;}
-  .content{max-width:760px;margin:0 auto;padding:0 28px 56px;}
-  .content section{
-    background:#fffdf8;border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);
-    padding:32px 34px;margin-top:28px;
-  }
-  .content h2{font-family:"Fraunces",serif;font-weight:900;font-size:1.6rem;margin-bottom:14px;}
-  .content h3{font-family:"Fraunces",serif;font-weight:700;font-size:1.05rem;margin:18px 0 6px;}
-  .content p{font-size:.85rem;line-height:1.6;margin-bottom:12px;color:#2b2a26;}
-  .steps{counter-reset:step;margin:6px 0 4px;}
-  .steps .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
-  .steps .num{
-    flex:0 0 auto;width:30px;height:30px;border:2px solid var(--ink);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;
-    background:var(--paper);
-  }
-  .steps .step p{margin:0;font-size:.85rem;line-height:1.45;}
-  .steps .step strong{font-family:"Fraunces",serif;}
-  .faq dt{font-family:"Fraunces",serif;font-weight:700;font-size:.95rem;margin-top:14px;}
-  .faq dd{margin:4px 0 0;font-size:.85rem;line-height:1.55;color:#2b2a26;}
-  .spin{display:inline-block;width:12px;height:12px;border:2px solid var(--ink);border-top-color:transparent;border-radius:50%;animation:s .7s linear infinite;vertical-align:middle;margin-right:6px;}
-  @keyframes s{to{transform:rotate(360deg)}}
-</style>
-</head>
-<body>
-<header>
-  <h1>SwapDoc</h1>
-  <span class="tag">word ⇄ pdf, instantly</span>
-</header>
-
+{% block body %}
 <div class="wrap">
-
-  <main class="card">
-    <div class="hero">Convert <em>Word</em> &amp; <em>PDF</em><br>in one click.</div>
-    <p class="sub">Drop a .docx, .doc or .pdf. We convert it, you download it, then the file is deleted from our servers. No account, no storage.</p>
-
-    <label class="drop" id="drop">
-      <span class="dz-title">Drop your file here</span>
-      <span class="dz-hint">or click to browse — docx, doc, pdf (max 25 MB)</span>
-      <input type="file" id="file" accept=".docx,.doc,.pdf">
-    </label>
-
-    <div class="filename" id="fname"></div>
-    <button class="btn" id="go" disabled>Convert &amp; Download</button>
-    <div class="status" id="status"></div>
-
-    <div class="badges">
-      <div><b>↯ Auto-delete</b><br>removed after download</div>
-      <div><b>⏱ Fast</b><br>powered by LibreOffice</div>
-      <div><b>⌁ Private</b><br>no sign-up needed</div>
-    </div>
-  </main>
-
-  <!-- AD (below converter) -->
-  <div class="ad-inline">
-    <ins class="adsbygoogle" style="display:block"
-         data-ad-client="ca-pub-5734256894506579"
-         data-ad-slot="0000000000"
-         data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  {{ converter('Convert <em>Word</em> &amp; <em>PDF</em><br>in one click.',
+               'Drop a .docx, .doc or .pdf. We convert it, you download it, then the file is deleted from our servers. No account, no storage.') }}
+  {{ ad(AD_SLOT_TOP) }}
 </div>
 
 <div class="content">
-  <section>
-    <h2>About SwapDoc</h2>
-    <p>SwapDoc is a free, no-frills tool for converting documents between Microsoft Word
-    and PDF. Whether you need to turn a finished Word document into a tidy PDF for sharing,
-    or pull a PDF back into an editable Word file, SwapDoc does it in your browser in a few
-    seconds — no account, no software to install, and no watermarks added to your files.</p>
-    <p>It was built for the everyday moment when you have one document in the wrong format
-    and just need it converted quickly. The conversion runs on LibreOffice, the same
-    open-source engine trusted by millions, so formatting, fonts, and layout are preserved
-    as faithfully as possible.</p>
+  <section class="pick">
+    <h2>What do you need to do?</h2>
+    <div class="pick-grid">
+      <a class="pick-card" href="/word-to-pdf">
+        <span class="pick-title">Word → PDF</span>
+        <span>Lock a finished document's layout so it looks the same for everyone. Ideal for CVs, invoices and anything you're sending.</span>
+      </a>
+      <a class="pick-card" href="/doc-to-docx">
+        <span class="pick-title">DOC ⇄ DOCX</span>
+        <span>Upgrade an old Word 97-2003 .doc to .docx, or save a .docx as .doc for older software.</span>
+      </a>
+      <a class="pick-card" href="/pdf-to-word">
+        <span class="pick-title">PDF → Word</span>
+        <span>Get an editable .docx back from a PDF, so you can change the text, fix a typo or reuse the content.</span>
+      </a>
+    </div>
   </section>
 
-  <!-- AD (in content) -->
-  <div class="ad-inline">
-    <ins class="adsbygoogle" style="display:block"
-         data-ad-client="ca-pub-5734256894506579"
-         data-ad-slot="1111111111"
-         data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
+  <section>
+    <h2>About SwapDoc</h2>
+    <p>SwapDoc is a free online document converter for Microsoft Word and PDF files.
+    Whether you need to turn a finished Word document into a tidy PDF for sharing,
+    or pull a PDF back into an editable Word file, SwapDoc does it in your browser in a few
+    seconds, with no account, no software to install, and no watermarks added to your files.</p>
+    <p>It was built for the everyday moment when you have a document in the wrong format
+    and just need it converted quickly. The conversion runs on LibreOffice, the open-source
+    office suite used by millions, so text, fonts and layout are kept as closely as possible.
+    <a href="/about">More about SwapDoc</a>.</p>
+  </section>
+
+  {{ ad(AD_SLOT_CONTENT) }}
 
   <section>
     <h2>How it works</h2>
     <div class="steps">
       <div class="step"><div class="num">1</div><p><strong>Choose your file.</strong>
-      Drag a <code>.docx</code>, <code>.doc</code>, or <code>.pdf</code> onto the box, or
+      Drag a <code>.docx</code>, <code>.doc</code> or <code>.pdf</code> onto the box, or
       click to browse. Files up to 25&nbsp;MB are supported.</p></div>
       <div class="step"><div class="num">2</div><p><strong>We convert it.</strong>
-      SwapDoc detects the format and converts Word to PDF, or PDF back to an editable Word
+      SwapDoc spots the format and converts Word to PDF, or PDF back to an editable Word
       document, automatically.</p></div>
       <div class="step"><div class="num">3</div><p><strong>Download &amp; done.</strong>
-      Your converted file downloads straight away, and the original is deleted from our
-      server the moment the download finishes.</p></div>
+      Your converted file downloads straight away, and both files are deleted from our
+      server as soon as the download finishes.</p></div>
     </div>
   </section>
 
   <section>
     <h2>Your privacy comes first</h2>
-    <p>We know documents can be personal or confidential, so SwapDoc is built to hold onto
-    nothing. Files are processed only to perform the conversion you asked for, then deleted
-    immediately afterwards — we never read, store, share, or analyse their contents. There
-    is no sign-up, so we don't collect your name or email to use the tool. You can read the
-    full <a href="/privacy" style="color:var(--accent2);">Privacy Policy</a> for details,
-    including how advertising cookies are used to keep the service free.</p>
+    <p>Documents can be personal or confidential, so SwapDoc is built to hold on to
+    nothing. Files are processed only to do the conversion you asked for, then deleted
+    straight afterwards. We never read, store, share or analyse what's in them. There's no
+    sign-up, so we don't collect your name or email to use the tool. The full
+    <a href="/privacy">Privacy Policy</a> explains the details, including how advertising
+    keeps the service free.</p>
   </section>
 
   <section>
@@ -236,71 +102,31 @@
       <dt>Is SwapDoc free?</dt>
       <dd>Yes. SwapDoc is completely free to use and supported by advertising.</dd>
       <dt>Do I need to create an account?</dt>
-      <dd>No. There's no sign-up — just upload a file and convert it.</dd>
+      <dd>No. There's no sign-up. Just upload a file and convert it.</dd>
       <dt>What happens to my files?</dt>
       <dd>They're deleted from our server as soon as your download completes, and a
-      background process clears any leftovers shortly after. We keep no copies.</dd>
+      background process clears any leftovers within minutes. We keep no copies.</dd>
       <dt>Which formats are supported?</dt>
-      <dd>Word to PDF (<code>.docx</code> and <code>.doc</code>) and PDF to Word
-      (<code>.pdf</code> to <code>.docx</code>).</dd>
+      <dd>Word to PDF (<code>.docx</code> and <code>.doc</code>), PDF to Word
+      (<code>.pdf</code> to <code>.docx</code>), and between the two Word formats with the
+      <a href="/doc-to-docx">DOC ⇄ DOCX converter</a>.</dd>
       <dt>Why did my scanned PDF not convert into editable text?</dt>
-      <dd>Scanned PDFs are images of text rather than real text, so they can't be reflowed
-      into an editable Word document without optical character recognition (OCR), which
-      SwapDoc doesn't currently perform.</dd>
+      <dd>Scanned PDFs are pictures of text rather than real text, so they can't be turned
+      into editable Word text without optical character recognition (OCR), which SwapDoc
+      doesn't currently do. Our guide to <a href="/guides/convert-pdf-to-word">editing a PDF
+      in Word</a> shows a free way to handle scans.</dd>
       <dt>Is there a file size limit?</dt>
       <dd>Yes, uploads are capped at 25&nbsp;MB per file to keep conversions fast for
       everyone.</dd>
     </dl>
   </section>
+
+  <section>
+    <h2>Guides</h2>
+    <p>Short, practical guides to getting the best results from Word and PDF files.</p>
+    {{ guide_cards(nav_guides) }}
+  </section>
 </div>
+{% endblock %}
 
-<footer>© <span id="yr"></span> SwapDoc · Uploaded files are deleted immediately after conversion and download. We do not keep copies. · <a href="/privacy" style="color:var(--accent2);">Privacy Policy</a></footer>
-
-<script>
-  const drop=document.getElementById('drop'),
-        input=document.getElementById('file'),
-        fname=document.getElementById('fname'),
-        go=document.getElementById('go'),
-        status=document.getElementById('status');
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  let chosen=null;
-
-  function setFile(f){
-    chosen=f;
-    if(f){fname.textContent='Selected: '+f.name; go.disabled=false; status.textContent=''; status.className='status';}
-  }
-  input.addEventListener('change',e=>setFile(e.target.files[0]));
-  ['dragover','dragenter'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag');}));
-  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag');}));
-  drop.addEventListener('drop',e=>{if(e.dataTransfer.files[0])setFile(e.dataTransfer.files[0]);});
-
-  go.addEventListener('click',async()=>{
-    if(!chosen)return;
-    go.disabled=true;
-    status.className='status';
-    status.innerHTML='<span class="spin"></span>Converting…';
-    const fd=new FormData(); fd.append('file',chosen);
-    try{
-      const r=await fetch('/convert',{method:'POST',body:fd});
-      if(!r.ok){
-        let msg='Conversion failed';
-        try{msg=(await r.json()).error||msg;}catch(_){}
-        status.textContent=msg; status.className='status err'; go.disabled=false; return;
-      }
-      const blob=await r.blob();
-      const cd=r.headers.get('Content-Disposition')||'';
-      const m=cd.match(/filename="?([^"]+)"?/);
-      const name=m?m[1]:'converted';
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement('a'); a.href=url; a.download=name; a.click();
-      URL.revokeObjectURL(url);
-      status.textContent='Done — your download has started. File deleted from server.';
-      status.className='status ok';
-    }catch(err){
-      status.textContent='Network error, please try again.'; status.className='status err';
-    }
-    go.disabled=false;
-  });
-</script>
-</body>
-</html>
+{% block scripts %}<script nonce="{{ csp_nonce() }}" src="/static/js/convert.js?v={{ v }}" defer></script>{% endblock %}

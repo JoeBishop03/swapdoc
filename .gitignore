@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Local Claude/editor settings (contain paths on this PC)
+.claude/
+.vscode/
+
+# OS clutter
+Thumbs.db
+.DS_Store
+
+# Never commit secrets
+.env
+*.pfx
+*.pem

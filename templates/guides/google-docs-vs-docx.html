@@ -1,0 +1,156 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is a Google Doc the same as a DOCX file?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. A Google Doc is an online document stored in Google Drive and opened in a web browser. A DOCX is a Microsoft Word file you can save anywhere. Google Docs can open, edit and download DOCX files, so it's easy to switch between them." } },
+        { "@type": "Question", "name": "Can Google Docs edit a DOCX without converting it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open a .docx from Google Drive and Google Docs edits it directly, saving your changes back to the Word file. A .DOCX label next to the file name shows this is happening." } },
+        { "@type": "Question", "name": "How do I save a Google Doc as a Word document?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In Google Docs, go to File, Download, Microsoft Word (.docx). The file downloads to your computer and opens in Word." } },
+        { "@type": "Question", "name": "Do comments and suggestions survive when downloading a Google Doc as DOCX?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually yes. Comments come across as Word comments and suggested edits as tracked changes. Resolve or accept them first if you don't want the other person to see them." } },
+        { "@type": "Question", "name": "Can Microsoft Word open a Google Doc?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Not directly, because a Google Doc isn't a file on your computer. Download it as .docx first, then open that in Word." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> Google Docs is Google's free online word
+processor, and a "Google Doc" is a document that lives in your Google Drive. DOCX is the file
+format of Microsoft Word. They aren't the same thing, but they work together well: Google Docs
+can open, edit and download <code>.docx</code> files, so the real question is usually where
+to keep a document and what to send people.</p>
+
+<h2>The key difference: an online document vs a file</h2>
+<p>A <code>.docx</code> is a normal file. You can keep it on your laptop, a USB stick, OneDrive
+or anywhere else, email it as an attachment, and open it without an internet connection.</p>
+<p>A Google Doc isn't really a file you hold. It lives on Google's servers and you open it in
+a web browser (or the Google Docs app). If you use Google Drive on a computer, Google Docs
+appear as small <code>.gdoc</code> shortcuts: they're links that open the document online, not
+the document itself. To send a Google Doc to someone who doesn't use Google, you share a
+link or download a copy in another format.</p>
+
+<h2>Google Docs vs DOCX at a glance</h2>
+<table>
+  <thead><tr><th></th><th>Google Docs</th><th>DOCX (Microsoft Word)</th></tr></thead>
+  <tbody>
+    <tr><td>What it is</td><td>Online document in Google Drive</td><td>A file you save anywhere</td></tr>
+    <tr><td>Cost</td><td>Free with a Google account</td><td>Word comes with Microsoft 365; Word for the web is free with a Microsoft account</td></tr>
+    <tr><td>Works offline</td><td>Only if you switch on offline mode first</td><td>Yes, with Word installed</td></tr>
+    <tr><td>Writing together</td><td>Real-time, built in; share with a link</td><td>Real-time when stored in OneDrive or SharePoint</td></tr>
+    <tr><td>Reviewing</td><td>Comments and Suggesting mode</td><td>Comments and Track Changes</td></tr>
+    <tr><td>Version history</td><td>Automatic: File → Version history</td><td>Automatic when stored in OneDrive or SharePoint</td></tr>
+    <tr><td>Complex layouts</td><td>Basic; fewer layout tools</td><td>Extensive: text boxes, sections, advanced tables</td></tr>
+    <tr><td>Macros</td><td>No (Apps Script instead)</td><td>Only in <code>.docm</code> files</td></tr>
+    <tr><td>Size limit</td><td>About 1.02 million characters</td><td>Very large documents are fine</td></tr>
+  </tbody>
+</table>
+
+<h2>Editing a DOCX in Google Docs (without converting)</h2>
+<p>You don't have to turn a Word file into a Google Doc to work on it.</p>
+<ol>
+  <li>Upload the <code>.docx</code> to Google Drive.</li>
+  <li>Double-click it and choose <strong>Open with → Google Docs</strong>.</li>
+  <li>You'll see a <strong>.DOCX</strong> label next to the file name. Your edits are saved back
+  into the Word file, so it stays a <code>.docx</code>.</li>
+</ol>
+<p>This is handy for quick changes to a Word file someone sent you. For anything longer,
+converting gives you all of Google Docs' features.</p>
+
+<h2>How to convert DOCX to Google Docs</h2>
+<ol>
+  <li>Open the <code>.docx</code> in Google Docs as above.</li>
+  <li>Go to <strong>File → Save as Google Docs</strong>. Google creates a new Google Doc and keeps
+  the original Word file untouched.</li>
+</ol>
+<p>To convert every Word file you upload automatically, open Google Drive's
+<strong>Settings</strong> (the gear icon) and turn on <strong>Convert uploads</strong>.</p>
+
+<h2>How to convert a Google Doc to DOCX</h2>
+<ol>
+  <li>Open the document in Google Docs.</li>
+  <li>Go to <strong>File → Download → Microsoft Word (.docx)</strong>.</li>
+</ol>
+<p>Google Docs doesn't offer the older <code>.doc</code> format. If someone needs one (for
+example for Word 2003 or older business software), download the <code>.docx</code> and convert
+it with SwapDoc's free <a href="/doc-to-docx">DOCX to DOC converter</a>.</p>
+<p>The same menu also offers PDF, OpenDocument (<code>.odt</code>), Rich Text
+(<code>.rtf</code>), plain text, web page and EPUB. To send a finished copy that looks the same
+everywhere, PDF is usually best: see <a href="/guides/pdf-vs-word">PDF or Word: which format
+should you use?</a></p>
+
+<h2>What changes when you switch between them</h2>
+<p>Most everyday documents convert cleanly both ways. The things most likely to change:</p>
+<ul>
+  <li><strong>Fonts.</strong> Google Docs has its own font list. A Word font it doesn't have is
+  replaced with a similar one, which can change spacing and page count.</li>
+  <li><strong>Text boxes, shapes and SmartArt.</strong> These may become pictures or drawings, or
+  move.</li>
+  <li><strong>Complex layouts.</strong> Multiple sections, columns, and pictures set to float
+  around text can shift.</li>
+  <li><strong>Track Changes and comments.</strong> Word's tracked changes become suggestions in
+  Google Docs, and comments come across. Going the other way, suggestions usually become
+  tracked changes in Word.</li>
+  <li><strong>Macros.</strong> Removed, as Google Docs doesn't run Word macros.</li>
+  <li><strong>Pageless documents.</strong> If you use Google Docs' pageless setting, the
+  downloaded <code>.docx</code> is split into normal pages, so check where the page breaks fall.</li>
+</ul>
+<p>If something looks wrong after converting, our guide to
+<a href="/guides/fix-formatting-after-converting">fixing formatting after converting</a>
+covers the usual culprits.</p>
+
+<h2>Which should you use?</h2>
+<h3>Use Google Docs when…</h3>
+<ul>
+  <li>several people need to write or comment on the same document at once;</li>
+  <li>you work across different computers, a Chromebook or your phone;</li>
+  <li>you want automatic saving and history without thinking about it.</li>
+</ul>
+<h3>Use Word and DOCX when…</h3>
+<ul>
+  <li>someone asks for a Word document, such as a recruiter, publisher, client or university;</li>
+  <li>the document has a complex layout, or is very long, like a dissertation or book;</li>
+  <li>you need to work offline reliably.</li>
+</ul>
+<h3>Send a PDF when…</h3>
+<p>the document is finished and you want it to look exactly the same for everyone, like a CV,
+invoice or signed letter.</p>
+
+<h2>Tips for moving between Google Docs and Word</h2>
+<ul>
+  <li><strong>Stick to common fonts</strong> available in both, such as Arial, Georgia, Times New
+  Roman or Verdana.</li>
+  <li><strong>Use heading styles</strong> (Heading 1, Heading 2) rather than just making text bigger
+  and bold. They survive conversion and keep the structure.</li>
+  <li><strong>Keep one master copy.</strong> Converting back and forth repeatedly is how formatting
+  slowly drifts. Decide where the document "lives" and export from there.</li>
+  <li><strong>Resolve comments and suggestions</strong> before downloading a copy to send, unless
+  you want the other person to see them.</li>
+</ul>
+
+<h2>Common questions</h2>
+<dl class="faq">
+  <dt>Is a Google Doc the same as a DOCX file?</dt>
+  <dd>No. A Google Doc is an online document in Google Drive; a DOCX is a Word file. Google Docs
+  can open, edit and download DOCX files, so switching is easy.</dd>
+  <dt>Can Google Docs edit a DOCX without converting it?</dt>
+  <dd>Yes. Open it from Google Drive and your changes are saved back to the Word file. Look for
+  the <strong>.DOCX</strong> label next to the file name.</dd>
+  <dt>How do I save a Google Doc as a Word document?</dt>
+  <dd><strong>File → Download → Microsoft Word (.docx)</strong>.</dd>
+  <dt>Do comments and suggestions survive?</dt>
+  <dd>Usually: comments become Word comments and suggestions become tracked changes. Resolve
+  them first if you don't want them in the copy you send.</dd>
+  <dt>Can Microsoft Word open a Google Doc?</dt>
+  <dd>Not directly. Download it as <code>.docx</code> first. Need the older <code>.doc</code>
+  format? Convert the download with the <a href="/doc-to-docx">DOC ⇄ DOCX converter</a>, and see
+  <a href="/guides/doc-vs-docx">DOC vs DOCX</a> for the difference.</dd>
+  <dt>How do I turn a Google Doc into a PDF?</dt>
+  <dd>Use <strong>File → Download → PDF document</strong> in Google Docs, or download it as
+  <code>.docx</code> and use SwapDoc's <a href="/word-to-pdf">Word to PDF converter</a>.</dd>
+</dl>
+{% endblock %}

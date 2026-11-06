@@ -1,0 +1,163 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is DOCX better than DOC?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For almost everyone, yes. DOCX files are usually smaller, are easier to recover if damaged, cannot contain macros, support all of Word's current features, and open well in Google Docs, Apple Pages and LibreOffice. Use DOC only when someone specifically needs it for very old software." } },
+        { "@type": "Question", "name": "Can I open a DOC file in a new version of Word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every current version of Word opens .doc files. They open in Compatibility Mode, and you can upgrade them to .docx with File, Info, Convert." } },
+        { "@type": "Question", "name": "Will converting DOC to DOCX change my document?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually not noticeably. Occasionally line spacing or page breaks shift slightly, because Word lays out upgraded documents with its newer rules. Check the document after converting and keep the original until you're happy." } },
+        { "@type": "Question", "name": "Can Google Docs open DOC and DOCX files?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upload the file to Google Drive and open it with Google Docs. You can then edit it, or download it again as a .docx or PDF." } },
+        { "@type": "Question", "name": "How can I convert DOC to DOCX without Word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use a free online converter such as SwapDoc's DOC to DOCX converter, which works in both directions, or open the file in Google Docs or LibreOffice and save it as .docx." } },
+        { "@type": "Question", "name": "Are DOC files dangerous?",
+          "acceptedAnswer": { "@type": "Answer", "text": ".doc files can contain macros, which have often been used to spread malware. Modern Word blocks macros in files from the internet by default, but be wary of unexpected .doc or .docm attachments and never click Enable Content unless you trust the sender. Ordinary .docx files cannot contain macros." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> both are Microsoft Word documents. <code>.doc</code>
+is the older format, used by Word 97 to Word 2003. <code>.docx</code> replaced it in Word 2007
+and has been the default ever since. It's smaller, safer and works better with other apps, so
+save in <code>.docx</code> unless someone specifically asks for <code>.doc</code>.</p>
+
+<h2>DOC vs DOCX at a glance</h2>
+<table>
+  <thead><tr><th></th><th>.doc</th><th>.docx</th></tr></thead>
+  <tbody>
+    <tr><td>Default in</td><td>Word 97 to Word 2003</td><td>Word 2007 onwards, including Microsoft 365</td></tr>
+    <tr><td>How it's stored</td><td>One "binary" file in Microsoft's own structure</td><td>A ZIP folder of XML text files (Office Open XML)</td></tr>
+    <tr><td>Open standard</td><td>No (specification published by Microsoft in 2008)</td><td>Yes: ECMA-376 and ISO/IEC 29500</td></tr>
+    <tr><td>File size</td><td>Larger</td><td>Usually smaller, especially with pictures</td></tr>
+    <tr><td>Can contain macros</td><td>Yes</td><td>No (macro documents use <code>.docm</code>)</td></tr>
+    <tr><td>Damaged files</td><td>Often unreadable</td><td>Often partly recoverable</td></tr>
+    <tr><td>Newest Word features</td><td>Not all; opens in Compatibility Mode</td><td>All</td></tr>
+    <tr><td>Google Docs, Pages, LibreOffice</td><td>Opens, but older format</td><td>Opens well</td></tr>
+  </tbody>
+</table>
+
+<h2>What is a .doc file?</h2>
+<p><code>.doc</code> was Word's main format for many years. The version you'll meet today is the
+one used from Word 97 to Word 2003, often labelled "Word 97-2003 Document". It's a binary
+format: the text, formatting and pictures are packed into a single file whose structure
+only programs that understand it can read. Microsoft published the full specification in
+2008, which is why other programs can open <code>.doc</code> files reliably today.</p>
+
+<h2>What is a .docx file?</h2>
+<p><code>.docx</code> arrived with Word 2007. Inside, a <code>.docx</code> is a compressed
+folder (a ZIP file) of text files written in XML, following an open standard called Office
+Open XML (ECMA-376, later ISO/IEC 29500). You can see this for yourself: copy a
+<code>.docx</code>, rename the copy to end in <code>.zip</code>, and open it. You'll find a
+folder called <code>word</code> holding the document text, styles and any pictures.</p>
+
+<h2>Why .docx is better</h2>
+<ul>
+  <li><strong>Smaller files.</strong> The contents are compressed, so documents, especially ones
+  with pictures, usually take up less space and are quicker to email.</li>
+  <li><strong>Easier to recover.</strong> Because each part is stored separately, a damaged file
+  can often be partly rescued. A damaged <code>.doc</code> is frequently a lost cause.</li>
+  <li><strong>Safer.</strong> Ordinary <code>.docx</code> files can't contain macros (small
+  programs). Documents with macros must be saved as <code>.docm</code>, so you can tell
+  them apart at a glance.</li>
+  <li><strong>Works everywhere.</strong> As an open standard, <code>.docx</code> is read well by
+  Google Docs, Apple Pages, LibreOffice and most phone apps.</li>
+  <li><strong>All of Word's features.</strong> Some newer features aren't available in
+  <code>.doc</code>, which is why Word opens such files in Compatibility Mode.</li>
+</ul>
+
+<h2>Are .doc files dangerous?</h2>
+<p>Not by themselves, but <code>.doc</code> files can carry macros, and malicious macros have
+been one of the most common ways malware spreads by email. Modern versions of Word block
+macros in files downloaded from the internet by default, which has helped a lot. Still:</p>
+<ul>
+  <li>Be wary of unexpected <code>.doc</code> or <code>.docm</code> attachments, even from people
+  you know.</li>
+  <li>Never click <strong>Enable Content</strong> or <strong>Enable Macros</strong> on a document
+  unless you trust where it came from and know why it needs them.</li>
+  <li>A <code>.docx</code> is safer, but not risk-free. Treat any attachment you weren't expecting
+  with care.</li>
+</ul>
+
+<h2>How to tell whether you have .doc or .docx</h2>
+<p>Windows and Mac hide file extensions by default. To show them:</p>
+<ul>
+  <li><strong>Windows 11:</strong> in File Explorer, click <strong>View → Show → File name
+  extensions</strong>.</li>
+  <li><strong>Windows 10:</strong> in File Explorer, open the <strong>View</strong> tab and tick
+  <strong>File name extensions</strong>.</li>
+  <li><strong>Mac:</strong> in Finder, choose <strong>Finder → Settings → Advanced</strong> and tick
+  <strong>Show all filename extensions</strong>.</li>
+</ul>
+<p>Or just open the document in Word. If you see <strong>Compatibility Mode</strong> next to the
+name at the top of the window, it's an older <code>.doc</code> (or a <code>.docx</code> saved
+to behave like one).</p>
+
+<h2>How to convert .doc to .docx</h2>
+<h3>Online, free (no Word needed)</h3>
+<p>Use SwapDoc's <a href="/doc-to-docx">DOC to DOCX converter</a>: drop in the <code>.doc</code>,
+click <strong>Convert</strong>, and the <code>.docx</code> downloads in seconds. It works the other
+way too. No sign-up, and the file is deleted after download.</p>
+<h3>In Word for Windows</h3>
+<ol>
+  <li>Open the <code>.doc</code> file.</li>
+  <li>Go to <strong>File → Info → Convert</strong>, then click <strong>OK</strong>.</li>
+  <li>Save. Word now treats it as a <code>.docx</code> and Compatibility Mode disappears.</li>
+</ol>
+<h3>In Word for Mac, or any version</h3>
+<p>Use <strong>File → Save As</strong> and choose <strong>Word Document (.docx)</strong> as the format.</p>
+<h3>Without Word</h3>
+<ul>
+  <li><strong>Google Docs:</strong> upload the file to Google Drive, open it with Google Docs, then
+  <strong>File → Download → Microsoft Word (.docx)</strong>.</li>
+  <li><strong>LibreOffice</strong> (free): open the file, then <strong>File → Save As</strong> and pick
+  <strong>Word 2007-365 (.docx)</strong>.</li>
+</ul>
+<p>After converting, scroll through and check the layout. Occasionally line spacing or page
+breaks move slightly, because Word lays out upgraded documents using its newer rules. Keep
+the original until you're happy.</p>
+
+<h2>When might you still need .doc?</h2>
+<p>Rarely. Occasionally an old piece of business software, an older online form, or someone
+still using Word 2003 or earlier needs <code>.doc</code>. If so, save a copy with
+<strong>File → Save As</strong> and choose <strong>Word 97-2003 Document (*.doc)</strong>. Word
+will warn you if anything in the document can't be kept in the older format. No Word? Drop the
+<code>.docx</code> into the <a href="/doc-to-docx">DOCX to DOC converter</a>.</p>
+
+<h2>Other Word file types you might see</h2>
+<table>
+  <thead><tr><th>Extension</th><th>What it is</th></tr></thead>
+  <tbody>
+    <tr><td><code>.docm</code></td><td>A <code>.docx</code> that's allowed to contain macros. Open only from trusted sources.</td></tr>
+    <tr><td><code>.dotx</code> / <code>.dot</code></td><td>Word templates (new and old format). Opening one creates a new document based on it.</td></tr>
+    <tr><td><code>.rtf</code></td><td>Rich Text Format: a simple, very widely readable format with basic formatting.</td></tr>
+    <tr><td><code>.odt</code></td><td>OpenDocument Text, the default format of LibreOffice. Word can open and save it.</td></tr>
+  </tbody>
+</table>
+
+<h2>Common questions</h2>
+<dl class="faq">
+  <dt>Is DOCX better than DOC?</dt>
+  <dd>For almost everyone, yes: smaller, safer, easier to recover, and better supported by
+  other apps. Use <code>.doc</code> only when someone specifically needs it.</dd>
+  <dt>Can I open a DOC file in a new version of Word?</dt>
+  <dd>Yes. Every current version of Word opens <code>.doc</code> files, in Compatibility Mode.</dd>
+  <dt>Will converting DOC to DOCX change my document?</dt>
+  <dd>Usually not noticeably. Occasionally spacing or page breaks shift slightly, so check it
+  afterwards.</dd>
+  <dt>Can Google Docs open DOC and DOCX files?</dt>
+  <dd>Yes. Upload the file to Google Drive and open it with Google Docs.{% if guide_live('google-docs-vs-docx') %}
+  Our guide <a href="/guides/google-docs-vs-docx">Google Docs vs DOCX</a> explains what changes
+  when you do.{% endif %}</dd>
+  <dt>How can I convert DOC to DOCX without Word?</dt>
+  <dd>Use the free <a href="/doc-to-docx">DOC ⇄ DOCX converter</a>, which works in both
+  directions, or open the file in Google Docs or LibreOffice and save it as <code>.docx</code>.</dd>
+  <dt>Can I turn a DOC or DOCX into a PDF?</dt>
+  <dd>Yes. SwapDoc's <a href="/word-to-pdf">Word to PDF converter</a> accepts both, free and
+  without sign-up.</dd>
+</dl>
+{% endblock %}

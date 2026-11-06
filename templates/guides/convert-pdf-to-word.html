@@ -1,0 +1,71 @@
+{% extends "guide_base.html" %}
+{% block article %}
+<p class="lede">PDFs are designed to be read, not edited. When you need to change one, the
+easiest fix is usually to turn it into a Word document, edit it, and save a new PDF. Here
+are three free ways to do that, and how to handle the tricky cases.</p>
+
+<h2>First: what kind of PDF do you have?</h2>
+<p>Open the PDF and try to select a word with your mouse.</p>
+<ul>
+  <li><strong>You can highlight individual words:</strong> it's a text PDF, usually made from
+  Word or another program. It will convert into editable text.</li>
+  <li><strong>The whole page highlights as one block, or nothing happens:</strong> it's a
+  scanned PDF or a photo of a page. You'll need text recognition (OCR) to get editable text;
+  see method 3.</li>
+</ul>
+
+<h2>1. Use an online converter</h2>
+<ol>
+  <li>Go to <a href="/pdf-to-word">SwapDoc's PDF to Word converter</a>.</li>
+  <li>Drop your PDF onto the box, or click to choose it.</li>
+  <li>Click <strong>Convert to Word</strong> and open the <code>.docx</code> that downloads.</li>
+</ol>
+<p>This works on any device and doesn't need Word installed to do the conversion. Your file
+is deleted from the server once your download finishes.</p>
+
+<h2>2. Open the PDF directly in Microsoft Word</h2>
+<p>Word 2013 and later (including Microsoft 365) can open PDFs and turn them into editable
+documents on your own computer.</p>
+<ol>
+  <li>In Word, go to <strong>File → Open</strong> and choose the PDF. You may need to set the
+  file type to <strong>All files</strong> or <strong>PDF files</strong> to see it.</li>
+  <li>Word warns that it will convert the PDF into an editable document and that it may not
+  look exactly like the original. Click <strong>OK</strong>.</li>
+  <li>Edit the document, then use <strong>File → Save As</strong> to save it as a Word document,
+  or as a new PDF.</li>
+</ol>
+
+<h2>3. Use Google Docs for scanned PDFs</h2>
+<p>Google Drive can run text recognition on scanned PDFs and images for free.</p>
+<ol>
+  <li>Upload the PDF to Google Drive.</li>
+  <li>Right-click it and choose <strong>Open with → Google Docs</strong>.</li>
+  <li>Google creates a new document with the recognised text, usually below an image of the
+  original page. Check it carefully: OCR often confuses similar characters, like
+  <code>0</code> and <code>O</code> or <code>1</code> and <code>l</code>.</li>
+  <li>Go to <strong>File → Download → Microsoft Word (.docx)</strong>.</li>
+</ol>
+<p>Text recognition works best on clear, straight, high-contrast scans. Handwriting,
+faint photocopies and photos taken at an angle give poor results.</p>
+
+<h2>Why the layout sometimes changes</h2>
+<p>A PDF records exactly where each line of text and each image sits on the page. It
+doesn't know that some lines form a paragraph, that a row of text is a table, or that a
+block is a heading. A converter has to guess that structure back. When it can't be sure, it
+keeps the look by putting text in separate boxes, which looks right but is fiddly to edit.</p>
+<p>The cleaner the original PDF, the better the result. If you get a messy conversion, our
+guide to <a href="/guides/fix-formatting-after-converting">fixing formatting after
+converting</a> covers the usual problems.</p>
+
+<h2>Quick tips</h2>
+<ul>
+  <li><strong>Only need a few lines?</strong> Copying text straight from the PDF and pasting with
+  <strong>Paste → Keep Text Only</strong> in Word is often quicker than converting the whole thing.</li>
+  <li><strong>Need to fill in a form?</strong> Many PDF forms can be filled in directly in a free
+  PDF reader or your web browser, without converting.</li>
+  <li><strong>Password-protected PDFs</strong> can't be converted until the password is removed,
+  and only do that if you have permission.</li>
+  <li><strong>Respect copyright.</strong> Converting lets you edit a document; it doesn't give
+  you the right to reuse someone else's work.</li>
+</ul>
+{% endblock %}

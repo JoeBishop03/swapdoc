@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "macros.html" import ad, guide_cards with context %}
+
+{% block structured_data %},
+    {
+      "@type": "CollectionPage",
+      "name": "SwapDoc guides",
+      "url": "{{ SITE }}/guides",
+      "hasPart": [{% for g in nav_guides %}
+        { "@type": "Article", "headline": {{ g.title|tojson }}, "url": "{{ SITE }}/guides/{{ g.slug }}" }{{ "," if not loop.last }}{% endfor %}
+      ]
+    }
+{% endblock %}
+
+{% block body %}
+<div class="content article-wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <span>Guides</span></nav>
+  <main id="main">
+    <section class="article">
+      <h1>Guides</h1>
+      <p class="lede">Plain-English help with Word and PDF files: converting them, editing them,
+      and getting the formatting right.</p>
+      {{ guide_cards(nav_guides) }}
+    </section>
+  </main>
+  {{ ad(AD_SLOT_CONTENT) }}
+</div>
+{% endblock %}

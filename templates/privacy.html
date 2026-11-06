@@ -1,125 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — SwapDoc</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#10100e;
-    --paper:#f4f1ea;
-    --accent:#e8513f;
-    --accent2:#1f6f5c;
-    --line:#cfc8b8;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Spline Sans Mono",monospace;
-    min-height:100vh;
-    background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.05) 1px,transparent 0);
-    background-size:22px 22px;
-    display:flex;flex-direction:column;
-  }
-  header{
-    border-bottom:2px solid var(--ink);
-    padding:18px 28px;display:flex;align-items:baseline;gap:14px;
-  }
-  header a{text-decoration:none;color:var(--ink);}
-  header h1{
-    font-family:"Fraunces",serif;font-weight:900;font-size:1.9rem;letter-spacing:-.5px;
-  }
-  header .tag{font-size:.78rem;color:var(--accent2);}
-  main{
-    flex:1;max-width:760px;margin:0 auto;padding:48px 28px;width:100%;
-  }
-  .doc{
-    background:#fffdf8;border:2px solid var(--ink);
-    box-shadow:8px 8px 0 var(--ink);padding:40px;
-  }
-  h2.title{font-family:"Fraunces",serif;font-weight:900;font-size:2rem;margin-bottom:6px;}
-  .updated{font-size:.75rem;color:#8a8273;margin-bottom:28px;}
-  h3{font-family:"Fraunces",serif;font-weight:700;font-size:1.15rem;margin:26px 0 8px;}
-  p{font-size:.86rem;line-height:1.6;margin-bottom:12px;}
-  ul{margin:0 0 12px 20px;}
-  li{font-size:.86rem;line-height:1.6;margin-bottom:6px;}
-  a{color:var(--accent2);}
-  .back{display:inline-block;margin-top:24px;font-size:.82rem;}
-  footer{border-top:2px solid var(--ink);padding:16px 28px;font-size:.72rem;color:#6c6555;}
-</style>
-</head>
-<body>
-<header>
-  <a href="/"><h1>SwapDoc</h1></a>
-  <span class="tag">privacy policy</span>
-</header>
+{% extends "page_base.html" %}
+{% block article %}
+<h1>Privacy Policy</h1>
+<p class="meta">Last updated: 25 October 2026</p>
 
-<main>
-  <div class="doc">
-    <h2 class="title">Privacy Policy</h2>
-    <p class="updated">Last updated: 31 May 2026</p>
+<p>SwapDoc ("we", "us", "the service") provides a free online tool to convert documents
+between Word and PDF formats. This policy explains what information is involved when you
+use the service, how it is handled, and the choices available to you. SwapDoc is run from
+the United Kingdom, and you can contact us at
+<a href="mailto:joe.bishop@swapdoc.co.uk">joe.bishop@swapdoc.co.uk</a>.</p>
 
-    <p>SwapDoc ("we", "us", "the service") provides a free online tool to convert documents
-    between Word and PDF formats. This policy explains what information is involved when you
-    use the service, how it is handled, and the choices available to you. By using SwapDoc
-    you agree to the practices described here.</p>
+<h2>Files you upload</h2>
+<p>When you convert a document, the file is uploaded over an encrypted connection to our
+server, converted, and returned to you for download. Both the original and the converted
+file are deleted as soon as the download completes, and a background process removes any
+residual files within about ten minutes. We do not read, copy, keep, share or analyse the
+contents of your documents.</p>
 
-    <h3>Files you upload</h3>
-    <p>When you convert a document, the file is uploaded to our server, converted, and
-    returned to you for download. Files are deleted immediately after the conversion and
-    download are complete, and a background process removes any residual files shortly
-    afterwards. We do not read, copy, retain, share, or analyse the contents of your
-    documents, and we do not keep them after your download finishes.</p>
+<h2>Information we collect</h2>
+<p>SwapDoc does not require an account, and we do not ask for your name, email address or
+other personal details to use the converter. Like any website, our server processes some
+technical information when you visit:</p>
+<ul>
+  <li><strong>Your IP address,</strong> used briefly in memory to apply fair-use limits on
+  conversions, which prevent abuse. It is not saved for this purpose.</li>
+  <li><strong>Basic request information,</strong> such as the page requested, the time, your
+  browser type and whether a conversion succeeded, used to keep the service running and fix
+  problems.</li>
+</ul>
 
-    <h3>Information we collect</h3>
-    <p>SwapDoc does not require an account, and we do not ask for your name, email address,
-    or other personal details to use the converter. Our server may process limited technical
-    information as a normal part of operating a website, such as your IP address (used to
-    apply fair-use rate limits that prevent abuse) and basic request data. This information
-    is used only to operate, secure, and maintain the service.</p>
+<h2>Visitor statistics</h2>
+<p>We measure how the site is used (for example, how many people visit, which pages they
+read, roughly which town or country they're in, and how long they spend on a page) using
+Microsoft Azure Application Insights. We've set it up to be as privacy-friendly as
+possible:</p>
+<ul>
+  <li><strong>No cookies, and nothing is stored on your device</strong> for statistics.</li>
+  <li>Instead of tracking you, our server makes an <strong>anonymous ID that changes every
+  day</strong>, created by scrambling your IP address and browser type with a secret key. It
+  can't be turned back into your IP address, and it can't link your visits on different
+  days.</li>
+  <li>Microsoft uses your IP address to work out an approximate location (town and
+  country) and then <strong>discards it</strong>; IP addresses are not stored in our
+  statistics.</li>
+  <li>We record the type of device and browser, the page, the website that linked you to us
+  (if any), the time spent on the page, and whether a conversion worked. We never record
+  file names or contents.</li>
+  <li>Statistics are kept for up to 90 days, then deleted automatically.</li>
+</ul>
+<p>Our lawful basis for this is our legitimate interest in understanding how the service
+is used, so we can improve it and keep it running. Microsoft processes this data for us as
+our processor.</p>
 
-    <h3>Cookies and advertising</h3>
-    <p>SwapDoc displays advertising provided by Google AdSense to keep the service free.
-    Third-party vendors, including Google, use cookies to serve ads based on a user's prior
-    visits to this and other websites.</p>
-    <ul>
-      <li>Google's use of advertising cookies enables it and its partners to serve ads to
-      you based on your visit to SwapDoc and other sites on the internet.</li>
-      <li>You can opt out of personalised advertising by visiting
-      <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>.</li>
-      <li>You can also opt out of some third-party vendors' use of cookies for personalised
-      advertising at
-      <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info/choices</a>.</li>
-      <li>For more on how Google uses data when you use our partners' sites or apps, see
-      <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google's policy</a>.</li>
-    </ul>
+<h2>Cookies and advertising</h2>
+<p>SwapDoc displays advertising provided by Google AdSense to keep the service free.
+Google and its partners may use cookies and similar technologies to show ads, measure them
+and, with your permission, personalise them.</p>
+<ul>
+  <li><strong>If you're in the UK, the EEA or Switzerland,</strong> Google's consent message asks
+  you before any cookies are used for personalised advertising. You can change your choice
+  at any time using <a href="#" class="js-privacy-settings">Privacy settings</a> at the bottom
+  of every page.</li>
+  <li>Google's use of advertising cookies enables it and its partners to serve ads to you
+  based on your visit to SwapDoc and other sites on the internet.</li>
+  <li>You can opt out of personalised advertising at
+  <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google Ads Settings</a>,
+  and from some other vendors at
+  <a href="https://www.youronlinechoices.eu/" target="_blank" rel="noopener">Your Online Choices</a>
+  or <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">aboutads.info</a>.</li>
+  <li>For more on how Google uses data from sites that use its services, see
+  <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use our services</a>.</li>
+</ul>
+<p>Our lawful basis for advertising cookies is your consent where the law requires it,
+and otherwise our legitimate interest in funding the service. Google acts as an independent
+controller for the data it collects through ads.</p>
 
-    <h3>Third-party services</h3>
-    <p>This site is hosted on Microsoft Azure, which may process technical request data on
-    our behalf as part of providing hosting. Advertising is provided by Google as described
-    above. We do not sell your information to anyone.</p>
+<h2>Who processes data for us</h2>
+<ul>
+  <li><strong>Microsoft (Azure),</strong> which hosts the website in the UK and provides visitor
+  statistics.</li>
+  <li><strong>Google (AdSense),</strong> which provides advertising.</li>
+</ul>
+<p>We do not sell your information to anyone. Some of these providers may process data
+outside the UK; where they do, they use the safeguards required by UK data protection law,
+such as the International Data Transfer Addendum.</p>
 
-    <h3>Children's privacy</h3>
-    <p>SwapDoc is a general-purpose tool and is not directed at children under 13. We do not
-    knowingly collect personal information from children.</p>
+<h2>Your rights</h2>
+<p>Under UK data protection law you have rights to access, correct, delete or object to the
+processing of your personal data, and to withdraw consent at any time. Because we don't
+know who you are, we usually hold nothing we can link to you, but you can contact us at
+<a href="mailto:joe.bishop@swapdoc.co.uk">joe.bishop@swapdoc.co.uk</a> with any request. If
+you're unhappy with how we've handled your data, you can complain to the
+<a href="https://ico.org.uk/make-a-complaint/" target="_blank" rel="noopener">Information
+Commissioner's Office</a>.</p>
 
-    <h3>Changes to this policy</h3>
-    <p>We may update this policy from time to time. Any changes will be posted on this page
-    with a revised "last updated" date.</p>
+<h2>Children's privacy</h2>
+<p>SwapDoc is a general-purpose tool and is not directed at children under 13. We do not
+knowingly collect personal information from children.</p>
 
-    <h3>Contact</h3>
-    <p>If you have questions about this privacy policy or how your data is handled, you can
-    contact us at <a href="mailto:joe.bishop@swapdoc.co.uk">joe.bishop@swapdoc.co.uk</a>.</p>
-
-    <a class="back" href="/">← Back to the converter</a>
-  </div>
-</main>
-
-<footer>© <span id="yr"></span> SwapDoc · <a href="/" style="color:var(--accent2);">Home</a></footer>
-
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+<h2>Changes to this policy</h2>
+<p>We may update this policy from time to time. Any changes will be posted on this page
+with a new "last updated" date.</p>
+{% endblock %}

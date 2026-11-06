@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title_tag or page.title }}</title>
+{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+{% if page.noindex %}
+<meta name="robots" content="noindex">
+{% else %}
+<link rel="canonical" href="{{ SITE }}{{ path }}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+{% endif %}
+<meta name="theme-color" content="#f4f1ea">
+
+<!-- Link previews on social media and messaging apps -->
+<meta property="og:type" content="{{ 'article' if guide else 'website' }}">
+<meta property="og:site_name" content="SwapDoc">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="{{ page.og_title or page.title }}">
+{% if page.description %}<meta property="og:description" content="{{ page.description }}">{% endif %}
+<meta property="og:url" content="{{ SITE }}{{ path }}">
+<meta property="og:image" content="{{ SITE }}/static/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SwapDoc: free Word to PDF and PDF to Word converter">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+
+<!-- Structured data: tells search engines what the site and page are -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ SITE }}/#website",
+      "name": "SwapDoc",
+      "alternateName": ["Swap Doc", "SwapDocs", "swapdoc.co.uk"],
+      "url": "{{ SITE }}/",
+      "inLanguage": "en-GB",
+      "publisher": { "@id": "{{ SITE }}/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ SITE }}/#org",
+      "name": "SwapDoc",
+      "url": "{{ SITE }}/",
+      "logo": "{{ SITE }}/static/apple-touch-icon.png",
+      "email": "joe.bishop@swapdoc.co.uk"
+    }{% block structured_data %}{% endblock %}
+  ]
+}
+</script>
+
+{% if ADSENSE_CLIENT %}
+<!-- Google AdSense. Google's own consent message (set up in AdSense > Privacy & messaging)
+     asks UK/EEA visitors before any ad cookies are used. -->
+<script async nonce="{{ csp_nonce() }}" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ ADSENSE_CLIENT }}" crossorigin="anonymous"></script>
+{% endif %}
+
+<link rel="preload" href="/static/fonts/spline-sans-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/static/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>{{ INLINE_CSS|safe }}</style>
+
+{% if AI_CONNECTION_STRING %}
+<!-- Visitor statistics (Azure Application Insights). Cookie-free: nothing is stored on
+     your device, and visitors are counted with an anonymous ID that changes daily. -->
+<script defer nonce="{{ csp_nonce() }}" src="/static/js/ai.3.4.5.gbl.min.js"></script>
+<script defer nonce="{{ csp_nonce() }}" src="/static/js/analytics.js?v={{ v }}" data-cs="{{ AI_CONNECTION_STRING }}" data-vid="{{ visitor_id() }}"></script>
+{% endif %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="brand" href="/">
+    <span class="brand-name">SwapDoc</span>
+    <span class="tag">word ⇄ pdf, instantly</span>
+  </a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/word-to-pdf"{% if path == '/word-to-pdf' %} aria-current="page"{% endif %}>Word to PDF</a>
+    <a href="/pdf-to-word"{% if path == '/pdf-to-word' %} aria-current="page"{% endif %}>PDF to Word</a>
+    <a href="/doc-to-docx"{% if path == '/doc-to-docx' %} aria-current="page"{% endif %}>DOC ⇄ DOCX</a>
+    <a href="/guides"{% if path.startswith('/guides') %} aria-current="page"{% endif %}>Guides</a>
+    <a href="/about"{% if path == '/about' %} aria-current="page"{% endif %}>About</a>
+  </nav>
+</header>
+
+{% block body %}{% endblock %}
+
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div>
+      <p class="footer-title">Convert</p>
+      <a href="/word-to-pdf">Word to PDF</a>
+      <a href="/pdf-to-word">PDF to Word</a>
+      <a href="/doc-to-docx">DOC ⇄ DOCX</a>
+      <a href="/">All conversions</a>
+    </div>
+    <div>
+      <p class="footer-title">Guides</p>
+      {% for g in nav_guides[:4] %}<a href="/guides/{{ g.slug }}">{{ g.short }}</a>{% endfor %}
+      <a href="/guides">All guides</a>
+    </div>
+    <div>
+      <p class="footer-title">SwapDoc</p>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy">Privacy policy</a>
+      <a href="/terms">Terms of use</a>
+      <a href="#" id="privacy-settings">Privacy settings</a>
+    </div>
+  </div>
+  <p class="footer-note">© {{ year }} SwapDoc · Uploaded files are deleted straight after conversion and download. We keep no copies.</p>
+</footer>
+
+<script nonce="{{ csp_nonce() }}" src="/static/js/site.js?v={{ v }}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

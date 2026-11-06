@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{# Plain text pages: About, Contact, Privacy, Terms. #}
+{% block body %}
+<div class="content article-wrap">
+  <main id="main">
+    <article class="article">
+      {% block article %}{% endblock %}
+    </article>
+  </main>
+</div>
+{% endblock %}

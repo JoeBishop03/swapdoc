@@ -1,0 +1,83 @@
+{% extends "guide_base.html" %}
+{% block article %}
+<p class="lede">You've finished a document and need to send it as a PDF. There are several
+free ways to do it, and the best one depends on what you have to hand. Here are four, from
+quickest to most hands-on, plus what to check before you send it.</p>
+
+<h2>1. Use an online converter (any device)</h2>
+<p>If you're on a computer without Word, a work laptop you can't install software on, or
+just want it done quickly, an online converter is the fastest route.</p>
+<ol>
+  <li>Go to <a href="/word-to-pdf">SwapDoc's Word to PDF converter</a>.</li>
+  <li>Drag your <code>.docx</code> or <code>.doc</code> file onto the box, or click to choose it.</li>
+  <li>Click <strong>Convert to PDF</strong>. The PDF downloads in a few seconds.</li>
+</ol>
+<p>Your file is uploaded to convert it and then deleted, so check that you're comfortable
+with that for very sensitive documents. If you'd rather the file never leaves your computer,
+use one of the methods below.</p>
+
+<h2>2. Save as PDF in Microsoft Word</h2>
+<p>Every recent version of Word can make PDFs itself, with no add-ons.</p>
+<h3>Word for Windows</h3>
+<ol>
+  <li>Open the document and go to <strong>File → Save As</strong> (or <strong>Save a Copy</strong>
+  if your file is in OneDrive).</li>
+  <li>Choose where to save it, then change <strong>Save as type</strong> to <strong>PDF</strong>.</li>
+  <li>Pick <strong>Standard</strong> for the best print quality, or <strong>Minimum size</strong>
+  for a smaller file to email or upload.</li>
+  <li>Click <strong>Save</strong>.</li>
+</ol>
+<p>You can also use <strong>File → Export → Create PDF/XPS Document</strong>, which does the
+same thing. Clicking <strong>Options</strong> in that window lets you save just some pages,
+and turn on bookmarks made from your headings.</p>
+<h3>Word for Mac</h3>
+<ol>
+  <li>Go to <strong>File → Save As</strong>.</li>
+  <li>Set <strong>File Format</strong> to <strong>PDF</strong>.</li>
+  <li>Choose <strong>Best for electronic distribution and accessibility</strong> to keep links
+  and headings working, then click <strong>Export</strong>.</li>
+</ol>
+
+<h2>3. Download as PDF from Google Docs</h2>
+<p>If you work in Google Docs, or someone sent you a Word file and you only have a
+Chromebook or phone:</p>
+<ol>
+  <li>Upload the Word file to Google Drive and open it with Google Docs (or open your Google Doc).</li>
+  <li>Go to <strong>File → Download → PDF document (.pdf)</strong>.</li>
+</ol>
+<p>Google Docs converts your file into its own format first, so complex Word layouts can
+shift slightly. Check the result before sending.</p>
+
+<h2>4. Print to PDF</h2>
+<p>Almost any program can "print" to a PDF file instead of paper. On Windows, choose
+<strong>Microsoft Print to PDF</strong> as the printer. On a Mac, click the <strong>PDF</strong>
+button at the bottom of the print window and choose <strong>Save as PDF</strong>.</p>
+<p>This is a good fall-back, but it's the most basic option: links usually stop being
+clickable, and there are no bookmarks. Use one of the methods above when you can.</p>
+
+<h2>Which method should you use?</h2>
+<table>
+  <thead><tr><th>Situation</th><th>Best option</th></tr></thead>
+  <tbody>
+    <tr><td>You don't have Word, or want it quickly</td><td>Online converter</td></tr>
+    <tr><td>You have Word and the document is confidential</td><td>Save as PDF in Word</td></tr>
+    <tr><td>You're on a Chromebook or already use Google Docs</td><td>Google Docs download</td></tr>
+    <tr><td>Nothing else works</td><td>Print to PDF</td></tr>
+  </tbody>
+</table>
+
+<h2>Check these before you send it</h2>
+<ul>
+  <li><strong>Page count and breaks.</strong> Scroll through the whole PDF. A heading stranded
+  at the bottom of a page, or a table split awkwardly, is easy to fix in Word with
+  <strong>Insert → Page Break</strong>.</li>
+  <li><strong>Fonts.</strong> If text looks different from your original, the font may have
+  been swapped. See <a href="/guides/fix-formatting-after-converting">why formatting changes
+  and how to fix it</a>.</li>
+  <li><strong>Tracked changes and comments.</strong> Accept or reject changes and delete
+  comments first, unless you mean to include them.</li>
+  <li><strong>Hidden personal information.</strong> In Word for Windows, <strong>File → Info →
+  Check for Issues → Inspect Document</strong> finds hidden text, comments and author details.</li>
+  <li><strong>The file name.</strong> "Jane-Smith-CV.pdf" reads better than "Document1 (3).pdf".</li>
+</ul>
+{% endblock %}
