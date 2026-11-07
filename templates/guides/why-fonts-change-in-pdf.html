@@ -1,0 +1,126 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why does my PDF have a different font from my Word document?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Whatever makes the PDF can only use fonts installed on that computer or server. If your font isn't there, a similar one is used instead. Calibri, Cambria, Arial, Times New Roman and Courier New have exact stand-ins on most converters; other fonts are swapped for the closest match." } },
+        { "@type": "Question", "name": "How do I keep my exact font in a PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Make the PDF on the computer that has the font: in Word use File, Save As and choose PDF. Word embeds the fonts in the PDF, so it looks the same everywhere." } },
+        { "@type": "Question", "name": "Which fonts are safest for converting to PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Calibri, Cambria, Arial, Times New Roman and Courier New. Free stand-ins with identical letter widths exist for all five, so lines and pages break in the same place on almost any converter." } },
+        { "@type": "Question", "name": "How can I check which fonts a PDF uses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In Adobe Acrobat Reader, open File, Properties and the Fonts tab. Each font is listed, and 'Embedded Subset' means it is stored inside the PDF." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> the program that makes a PDF can only draw text
+in fonts it has. If your font isn't on that computer or server, it uses a stand-in. Five common
+fonts have exact stand-ins; everything else gets the nearest match, which can move lines and
+pages. To keep an unusual font, make the PDF in Word on your own computer.</p>
+
+<h2>Why it happens</h2>
+<p>A Word document doesn't contain its fonts. It just names them: "this paragraph is Aptos, 11
+point". When you open it, your computer draws the text using its own copy of Aptos. When you
+convert it somewhere else, such as an online converter, a colleague's laptop or an older copy
+of Word, that computer looks for Aptos. If it doesn't have it, it picks a replacement.</p>
+<p>A PDF works the other way. When it's made, the fonts are <em>embedded</em>: the letter shapes
+are stored inside the file. That's why a PDF looks the same everywhere, and also why the font
+has to be right <em>at the moment the PDF is made</em>.</p>
+
+<h2>What we found when we tested 12 fonts</h2>
+<p>We converted a Word document written in 12 popular fonts using SwapDoc's
+<a href="/word-to-pdf">Word to PDF converter</a>, and listed the fonts in the resulting PDF.</p>
+<table>
+  <thead><tr><th>Font in Word</th><th>Font in the PDF</th><th>Same line breaks?</th></tr></thead>
+  <tbody>
+    <tr><td>Calibri</td><td>Carlito</td><td>Yes</td></tr>
+    <tr><td>Cambria</td><td>Caladea</td><td>Yes</td></tr>
+    <tr><td>Arial</td><td>Liberation Sans</td><td>Yes</td></tr>
+    <tr><td>Times New Roman</td><td>Liberation Serif</td><td>Yes</td></tr>
+    <tr><td>Courier New</td><td>Liberation Mono</td><td>Yes</td></tr>
+    <tr><td>Aptos, Segoe UI</td><td>Liberation Sans</td><td>Close, not exact</td></tr>
+    <tr><td>Verdana</td><td>DejaVu Sans</td><td>Close, not exact</td></tr>
+    <tr><td>Georgia</td><td>Liberation Serif</td><td>Close, not exact</td></tr>
+    <tr><td>Garamond</td><td>EB Garamond</td><td>Close, not exact</td></tr>
+    <tr><td>Century Gothic</td><td>URW Gothic</td><td>Close, not exact</td></tr>
+    <tr><td>Comic Sans MS</td><td>Comic Neue</td><td>Close, not exact</td></tr>
+  </tbody>
+</table>
+<p>The first five rows are <em>metric-compatible</em> fonts. They were designed so every letter
+is exactly as wide as in the Microsoft original. The text looks very slightly different
+close up, but every line and page breaks in the same place. The rest look similar, but their
+letters are a little wider or narrower, so a paragraph can gain or lose a line, and a one-page
+letter can spill onto two.</p>
+<p>The first time we ran this test, every font in the second group came out in a serif font
+like Times, even sans-serif fonts like Aptos and Verdana. We fixed that by adding the closer
+matches above. Other converters will have their own gaps, which is why it's worth checking
+any PDF you didn't make yourself.</p>
+
+<h2>Four ways to keep your font</h2>
+
+<h3>1. Make the PDF in Word itself</h3>
+<p>This is the surest fix. Word uses the fonts on your computer and embeds them in the PDF.</p>
+<ul>
+  <li><strong>Windows:</strong> File → Save As → choose <strong>PDF</strong> from the
+  "Save as type" list → Save.</li>
+  <li><strong>Mac:</strong> File → Save As → File Format: <strong>PDF</strong> → Export.</li>
+</ul>
+<p>Our guide <a href="/guides/convert-word-to-pdf">How to convert Word to PDF</a> covers this
+and other free methods.</p>
+
+<h3>2. Switch to a safe font</h3>
+<p>If the document is going to be converted or edited on other computers, use one of the five
+metric-compatible fonts: Calibri, Cambria, Arial, Times New Roman or Courier New. To change
+the whole document in Word, press <strong>Ctrl + A</strong> (<strong>Cmd + A</strong> on a Mac)
+and pick the font. If your headings use a different font, change the theme fonts instead under
+<strong>Design → Fonts</strong>.</p>
+
+<h3>3. Embed the fonts in the Word file</h3>
+<p>Word for Windows can store fonts inside the <code>.docx</code>: <strong>File → Options →
+Save → Embed fonts in the file</strong>. This helps when someone else opens your Word file on
+their computer. It makes the file bigger, and some fonts' licences don't allow embedding, so
+Word quietly skips them.</p>
+
+<h3>4. Check the PDF before you send it</h3>
+<p>Open the PDF and compare the page count with your Word document. Then check the fonts:</p>
+<ul>
+  <li><strong>Adobe Acrobat Reader:</strong> File → Properties → <strong>Fonts</strong> tab.
+  "Embedded Subset" means the font is stored in the PDF.</li>
+  <li><strong>Any browser:</strong> you can't list fonts, but zooming in to 200% on a heading
+  and a paragraph usually shows whether the letter shapes match your original.</li>
+</ul>
+<p>If you see a font you didn't use, that's a stand-in.</p>
+
+<h2>Other times a font changes</h2>
+<h3>The PDF looks wrong on someone else's computer</h3>
+<p>A PDF made without embedded fonts relies on the reader's computer having them. This is rare
+with Word and most converters, but it happens with some older tools and "print to PDF"
+drivers. Re-make the PDF with Word's own Save As PDF.</p>
+<h3>The font changed when I opened a Word file on another computer</h3>
+<p>Same cause, other direction: that computer doesn't have the font. It's especially common
+with Aptos, which older copies of Word and other apps don't have. See
+{% if guide_live('aptos-vs-calibri') %}<a href="/guides/aptos-vs-calibri">Aptos vs Calibri</a>{% else %}our upcoming guide to Aptos{% endif %}
+for what to do.</p>
+<h3>The font changed after converting a PDF back to Word</h3>
+<p>Converting PDF to Word brings the font names across, but the computer opening the Word file
+still needs those fonts. Our guide to <a href="/guides/fix-formatting-after-converting">fixing
+formatting after converting</a> covers this and other layout problems.</p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>Why does my PDF have a different font from my Word document?</dt>
+  <dd>Whatever made the PDF didn't have your font, so it used a stand-in. Calibri, Cambria,
+  Arial, Times New Roman and Courier New have exact stand-ins on most converters; other fonts
+  get the closest match.</dd>
+  <dt>How do I keep my exact font in a PDF?</dt>
+  <dd>Make the PDF on the computer that has the font. In Word, use File → Save As → PDF.</dd>
+  <dt>Which fonts are safest for converting to PDF?</dt>
+  <dd>Calibri, Cambria, Arial, Times New Roman and Courier New.</dd>
+  <dt>How can I check which fonts a PDF uses?</dt>
+  <dd>In Adobe Acrobat Reader, open File → Properties → Fonts.</dd>
+</dl>
+{% endblock %}

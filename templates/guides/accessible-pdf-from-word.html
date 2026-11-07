@@ -1,0 +1,135 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What makes a PDF accessible?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An accessible PDF has tags that tell screen readers what each part is (headings, paragraphs, lists, tables), a logical reading order, alternative text for images, a document title and language, and enough colour contrast." } },
+        { "@type": "Question", "name": "Does Print to PDF make an accessible PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Printing to PDF throws away the document's structure, so the PDF has no tags. Use File, Save As and choose PDF in Word, with Document structure tags for accessibility ticked in Options." } },
+        { "@type": "Question", "name": "How do I check a Word document for accessibility?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In Word, go to Review, Check Accessibility. Word lists errors such as missing alt text and unclear table headers, with tips to fix each one." } },
+        { "@type": "Question", "name": "Are SwapDoc's PDFs tagged?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. In our test, PDFs made by SwapDoc's Word to PDF converter included accessibility tags, a document language and bookmarks built from the document's headings." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> build the document properly in Word, with real
+headings, alt text on pictures, header rows on tables and clear link text, then save it with
+<strong>File → Save As → PDF</strong>. Don't use "Print to PDF", which strips out everything a
+screen reader needs.</p>
+
+<h2>Why it matters</h2>
+<p>People who are blind or partially sighted often use screen readers, which read documents
+aloud and let you jump between headings. Others zoom in, use high-contrast settings, or have
+the text re-flowed on a small screen. All of that depends on the PDF knowing what each part of
+the page is. A PDF that is just "text in positions" leaves them guessing.</p>
+<p>In the UK, public sector bodies have legal duties to make documents they publish accessible,
+and the Equality Act 2010 applies to services more widely. Accessible documents are also easier
+for everyone to read and search.</p>
+
+<h2>Seven things to fix in Word</h2>
+
+<h3>1. Use real headings</h3>
+<p>Apply <strong>Heading 1</strong>, <strong>Heading 2</strong> and so on from the
+<strong>Home</strong> tab's Styles, rather than just making text big and bold. Screen readers
+announce headings and let people jump between them. Word also turns them into PDF bookmarks.
+Use one Heading 1 for the title and don't skip levels.</p>
+
+<h3>2. Add alt text to pictures</h3>
+<p>Right-click a picture and choose <strong>View Alt Text</strong> (or <strong>Edit Alt
+Text</strong>). Describe what it shows and why it's there, in a sentence or two. For a chart,
+give the key finding ("Sales doubled between 2024 and 2026"). If a picture is just decoration,
+tick <strong>Mark as decorative</strong>.</p>
+
+<h3>3. Give tables a header row</h3>
+<p>Click in the table, then on <strong>Table Design</strong> tick <strong>Header Row</strong>.
+On the <strong>Layout</strong> tab, select the first row and click <strong>Repeat Header
+Rows</strong>; this also marks it as a header for screen readers. Avoid merged and split cells
+where you can, and never use tables just to lay out a page.</p>
+
+<h3>4. Write meaningful link text</h3>
+<p>"Read the <a href="/guides/pdf-vs-word">guide to PDF or Word</a>" makes sense when read on its
+own; "click here" doesn't. Screen reader users often list all the links on a page.</p>
+
+<h3>5. Use proper lists</h3>
+<p>Use the bullet and numbering buttons rather than typing dashes or numbers. Then the PDF knows
+it's a list and how many items it has.</p>
+
+<h3>6. Check colour and contrast</h3>
+<p>Dark text on a light background, and never colour alone to carry meaning. For example,
+"items in red are overdue" doesn't work for everyone; add a word or symbol too.</p>
+
+<h3>7. Set the title and language</h3>
+<p>Go to <strong>File → Info</strong> and fill in <strong>Title</strong> under Properties.
+Screen readers announce it when the PDF opens. Check the language under <strong>Review →
+Language → Set Proofing Language</strong>.</p>
+
+<h2>Run Word's checker</h2>
+<p>Go to <strong>Review → Check Accessibility</strong>. Word lists errors and warnings, such as
+missing alt text, tables without headers and hard-to-read colours, with a fix for each. Work
+through them until none are left.</p>
+
+<h2>Save it the right way</h2>
+<h3>Word for Windows</h3>
+<ol>
+  <li><strong>File → Save As</strong>, choose <strong>PDF</strong>.</li>
+  <li>Click <strong>Options…</strong> and make sure <strong>Document structure tags for
+  accessibility</strong> is ticked. Tick <strong>Create bookmarks using: Headings</strong>
+  too.</li>
+  <li>Save.</li>
+</ol>
+<h3>Word for Mac</h3>
+<p>Use <strong>File → Save As</strong> and choose PDF, and pick <strong>Best for electronic
+distribution and accessibility</strong> if offered.</p>
+<h3>Avoid "Print to PDF"</h3>
+<p>Microsoft Print to PDF and similar printer drivers produce a flat picture of the page layout
+with no tags, bookmarks or reading order. Whatever work you did in Word is lost.</p>
+
+<h3>What about SwapDoc?</h3>
+<p>We checked. PDFs made with our <a href="/word-to-pdf">Word to PDF converter</a> include
+accessibility tags, a document language, and bookmarks built from your headings, so the work you
+put into the Word document carries through. Word's own Save As PDF gives you the most control,
+especially over the title and language.</p>
+
+<h2>Check the finished PDF</h2>
+<ul>
+  <li><strong>Bookmarks:</strong> open the bookmarks panel in your PDF reader. Your headings
+  should be listed.</li>
+  <li><strong>Copy test:</strong> select all, copy, and paste into Notepad. The text should come
+  out in a sensible order.</li>
+  <li><strong>Read aloud:</strong> Adobe Acrobat Reader has <strong>View → Read Out
+  Loud</strong>, and Microsoft Edge has <strong>Read aloud</strong> for PDFs. Listen to a page or
+  two.</li>
+  <li><strong>Full check:</strong> Adobe Acrobat Pro has a full accessibility checker, and the
+  free PAC tool (from the PDF/UA Foundation) checks against the PDF/UA standard.</li>
+</ul>
+
+<h2>Checklist</h2>
+<ol>
+  <li>Headings use Heading styles, in order.</li>
+  <li>Every meaningful picture has alt text; decorative ones are marked decorative.</li>
+  <li>Tables have a header row and no layout-only tables.</li>
+  <li>Links describe where they go.</li>
+  <li>Lists use Word's list buttons.</li>
+  <li>Good contrast, and colour isn't the only signal.</li>
+  <li>Title and language are set.</li>
+  <li>Review → Check Accessibility shows no errors.</li>
+  <li>Saved with File → Save As → PDF, with structure tags on.</li>
+</ol>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>What makes a PDF accessible?</dt>
+  <dd>Tags, reading order, alt text, a title and language, and good contrast.</dd>
+  <dt>Does Print to PDF make an accessible PDF?</dt>
+  <dd>No. Use File → Save As → PDF.</dd>
+  <dt>How do I check a Word document for accessibility?</dt>
+  <dd>Review → Check Accessibility.</dd>
+  <dt>Are SwapDoc's PDFs tagged?</dt>
+  <dd>Yes: tags, a language and bookmarks from your headings.</dd>
+</dl>
+{% endblock %}

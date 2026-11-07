@@ -1,0 +1,102 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How can I open a DOCX file for free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use Word for the web at office.com with a free Microsoft account, Google Docs, LibreOffice Writer, or Apple Pages on a Mac, iPhone or iPad. All are free and can open, edit and save .docx files." } },
+        { "@type": "Question", "name": "Which free app keeps Word formatting best?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Word for the web, because it is Microsoft's own. LibreOffice is next best for complex layouts. Google Docs and Pages handle everyday documents well but can shift complicated layouts." } },
+        { "@type": "Question", "name": "Can I open a DOCX on Windows without Word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use Word for the web in your browser, or install LibreOffice. WordPad, which used to open .docx files, has been removed from recent versions of Windows 11." } },
+        { "@type": "Question", "name": "How do I just view or print a DOCX file?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Convert it to PDF, which opens in any web browser. You can also preview it in Gmail or Outlook if it arrived as an attachment." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> you don't need to buy Word. Microsoft's own
+<strong>Word for the web</strong> is free with a Microsoft account, and <strong>Google
+Docs</strong>, <strong>LibreOffice</strong> and Apple's <strong>Pages</strong> all open and
+edit <code>.docx</code> files for free. If you only need to read or print it, convert it to a
+PDF.</p>
+
+<h2>Which one to use</h2>
+<table>
+  <thead><tr><th>Option</th><th>Works on</th><th>Needs</th><th>Best for</th></tr></thead>
+  <tbody>
+    <tr><td>Word for the web</td><td>Any browser</td><td>Free Microsoft account</td><td>Keeping formatting exactly right</td></tr>
+    <tr><td>Google Docs</td><td>Any browser, Chromebook, phone</td><td>Google account</td><td>Editing with other people</td></tr>
+    <tr><td>LibreOffice Writer</td><td>Windows, Mac, Linux</td><td>A download</td><td>Working offline, complex documents</td></tr>
+    <tr><td>Pages</td><td>Mac, iPhone, iPad</td><td>Nothing (built in or free)</td><td>Apple users</td></tr>
+    <tr><td>Word mobile app</td><td>iPhone, Android</td><td>Free Microsoft account</td><td>Quick edits on a phone</td></tr>
+    <tr><td>Convert to PDF</td><td>Any device</td><td>Nothing</td><td>Just reading or printing</td></tr>
+  </tbody>
+</table>
+
+<h2>1. Word for the web</h2>
+<p>Go to <strong>office.com</strong> (or <strong>onedrive.live.com</strong>), sign in with a free
+Microsoft account, and upload the file. It opens in a browser version of Word that handles
+everyday documents with the same formatting as desktop Word. Some advanced features, such as
+mail merge and some layout tools, are only in the paid desktop app. Your file is saved to
+OneDrive; download it with <strong>File → Save As → Download a Copy</strong>.</p>
+
+<h2>2. Google Docs</h2>
+<p>Upload the file to <strong>drive.google.com</strong>, then double-click it. Google shows a
+preview; click <strong>Open with Google Docs</strong> to edit it. You can edit it as a
+<code>.docx</code> directly (you'll see a ".DOCX" badge next to the name), or save it as a
+Google Doc with <strong>File → Save as Google Docs</strong>. To send it back as Word, use
+<strong>File → Download → Microsoft Word (.docx)</strong>. Our guide
+<a href="/guides/google-docs-vs-docx">Google Docs vs DOCX</a> explains what can change on the
+way.</p>
+
+<h2>3. LibreOffice Writer</h2>
+<p>LibreOffice is a free, open-source office suite from <strong>libreoffice.org</strong>. Its
+word processor, Writer, opens <code>.docx</code> files, works offline and has no account or
+adverts. It's the same engine SwapDoc uses for its conversions. When saving, choose
+<strong>Keep Current Format</strong> to stay in <code>.docx</code>.</p>
+<p>If the document uses Microsoft fonts you don't have, LibreOffice uses stand-ins. Calibri,
+Cambria, Arial and Times New Roman have exact matches; others may move text slightly. See
+<a href="/guides/why-fonts-change-in-pdf">why fonts change</a>.</p>
+
+<h2>4. Pages (Mac, iPhone, iPad)</h2>
+<p>Pages is free from Apple. Double-click the <code>.docx</code>, or open it from Pages with
+<strong>File → Open</strong>. Pages converts it into a Pages document. To send it back, use
+<strong>File → Export To → Word</strong>. Pages is great for reading and light editing, but
+complex Word layouts, comments and tracked changes may not come back exactly as they were.</p>
+
+<h2>5. Word on your phone</h2>
+<p>The Microsoft Word app (or the Microsoft 365 app, which includes it) for iPhone and Android
+lets you open, read and make basic edits with a free Microsoft account. Some features need a
+subscription.</p>
+
+<h2>6. Just need to read or print it? Make it a PDF</h2>
+<p>Convert the file with our <a href="/word-to-pdf">Word to PDF converter</a> and it opens in
+any web browser, on any device, ready to print. If the file arrived by email, Gmail and Outlook
+can also preview <code>.docx</code> attachments without downloading them.</p>
+
+<h2>What about WordPad?</h2>
+<p>WordPad, which came with Windows for decades and could open <code>.docx</code> files, has
+been removed from recent versions of Windows 11. It also never handled much formatting. Use
+Word for the web or LibreOffice instead.</p>
+
+<h2>Got a .doc file instead?</h2>
+<p>All of the options above open old <code>.doc</code> files too. If one won't, convert it to
+<code>.docx</code> first with our <a href="/doc-to-docx">DOC ⇄ DOCX converter</a>, and read
+<a href="/guides/doc-vs-docx">DOC vs DOCX</a> for the differences.</p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>How can I open a DOCX file for free?</dt>
+  <dd>Word for the web, Google Docs, LibreOffice or Pages.</dd>
+  <dt>Which free app keeps Word formatting best?</dt>
+  <dd>Word for the web, then LibreOffice.</dd>
+  <dt>Can I open a DOCX on Windows without Word?</dt>
+  <dd>Yes: Word for the web in a browser, or LibreOffice. WordPad is no longer included in
+  recent Windows 11.</dd>
+  <dt>How do I just view or print a DOCX file?</dt>
+  <dd>Convert it to PDF, or preview it in Gmail or Outlook.</dd>
+</dl>
+{% endblock %}

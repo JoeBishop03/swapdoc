@@ -13,7 +13,7 @@
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "Will the Word document look exactly like the PDF?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Usually close, but not always identical. A PDF stores where each line sits on the page, not paragraphs and styles, so the converter has to rebuild the document. Simple text documents convert well; complex layouts may come back as text boxes that need tidying." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "It looks the same, page for page, because each line is placed exactly where it was. The trade-off is that each line sits in its own text box, so it's ideal for small edits but awkward for rewriting paragraphs." } },
         { "@type": "Question", "name": "Can I convert a scanned PDF?",
           "acceptedAnswer": { "@type": "Answer", "text": "A scanned PDF is a picture of a page, so it converts into a Word file containing that picture rather than editable text. To get editable text from a scan you need OCR (text recognition)." } },
         { "@type": "Question", "name": "Can I convert a password-protected PDF?",
@@ -58,32 +58,59 @@
 
   {{ ad(AD_SLOT_CONTENT) }}
 
-  <section>
-    <h2>What to expect</h2>
+  <section id="tested">
+    <h2>What we tested, and what came out</h2>
+    <p class="tested">Tested on {{ TESTED_LABEL }} on the live converter.</p>
     <p>A PDF doesn't really contain paragraphs, headings or tables. It records where each
-    line and image sits on the page. To make an editable document, the converter has to work
-    out the structure again, so results depend on how the PDF was made.</p>
-    <h3>Converts well</h3>
-    <p>PDFs saved from Word or another word processor: letters, reports, essays and CVs
-    with mostly plain text.</p>
-    <h3>May need tidying</h3>
-    <p>Magazine-style layouts, multiple columns, complex tables and designed brochures. These
-    often come back with text in separate boxes. Our guide to
-    <a href="/guides/fix-formatting-after-converting">fixing formatting after converting</a>
-    explains how to clean them up quickly.</p>
-    <h3>Won't become editable text</h3>
-    <p>Scanned documents and photos of pages. These are pictures of text, so the Word file
-    will contain the picture. To get editable text you need OCR (text recognition). Our
-    guide <a href="/guides/convert-pdf-to-word">How to turn a PDF into an editable Word
-    document</a> shows a free way to do that.</p>
+    line and picture sits on the page, and the converter has to rebuild a document from
+    that. We converted three kinds of PDF to see how well it does:</p>
+    <ul>
+      <li>a 3-page PDF made from Word, with a table, a picture, a link, a landscape page and
+      several fonts and languages;</li>
+      <li>a two-column newsletter;</li>
+      <li>a scan of the same 3 pages, saved as pictures.</li>
+    </ul>
+    <table>
+      <thead><tr><th>In the PDF</th><th>In the Word file</th></tr></thead>
+      <tbody>
+        <tr><td>Text, including accents, £ and Arabic</td><td>All there, and editable</td></tr>
+        <tr><td>Fonts, sizes, bold and colour</td><td>Kept</td></tr>
+        <tr><td>Pictures</td><td>Kept, in the same place</td></tr>
+        <tr><td>Page layout</td><td>Looks the same as the PDF, page for page</td></tr>
+        <tr><td>Paragraphs</td><td><strong>Each line becomes its own text box.</strong> The 8 stories in our newsletter came back as 74 boxes.</td></tr>
+        <tr><td>Tables</td><td>Look right, but become text and lines rather than a Word table</td></tr>
+        <tr><td>Web links</td><td>Text kept, but no longer clickable</td></tr>
+        <tr><td>Headers and footers</td><td>Become ordinary text at the top and bottom of each page</td></tr>
+        <tr><td>Scanned pages</td><td>A picture of each page, with no editable text (took 3 seconds)</td></tr>
+      </tbody>
+    </table>
+    <h3>What that means for you</h3>
+    <p><strong>Good for:</strong> changing a few words, a date, a name or a figure while
+    keeping the layout exactly as it was, such as a form, a letter or a price list. Click into
+    a line and type.</p>
+    <p><strong>Awkward for:</strong> rewriting whole paragraphs, because text won't flow from
+    one line to the next. For that, either:</p>
+    <ul>
+      <li>select all (<strong>Ctrl + A</strong>), copy, and paste into a new document with
+      <strong>Paste → Keep Text Only</strong>, then re-apply headings; or</li>
+      <li>open the PDF directly in Microsoft Word (<strong>File → Open</strong>), which
+      rebuilds flowing paragraphs and real tables but is less faithful to the original
+      layout.</li>
+    </ul>
+    <p><strong>Scans</strong> need text recognition (OCR), which SwapDoc doesn't do. Google
+    Docs does it for free; see our guide to
+    <a href="/guides/convert-pdf-to-word">turning a PDF into an editable Word document</a>.
+    For more clean-up tricks, read
+    <a href="/guides/fix-formatting-after-converting">fixing formatting after converting</a>.</p>
   </section>
 
   <section>
     <h2>PDF to Word questions</h2>
     <dl class="faq">
       <dt>Will the Word document look exactly like the PDF?</dt>
-      <dd>Usually close, but not always identical. Simple text documents convert well;
-      complex layouts may come back as text boxes that need tidying.</dd>
+      <dd>It looks the same, page for page, because each line is placed exactly where it was.
+      The trade-off is that each line sits in its own text box, so it's ideal for small edits
+      but awkward for rewriting paragraphs.</dd>
       <dt>Can I convert a scanned PDF?</dt>
       <dd>It will convert, but into a Word file containing a picture of each page rather than
       editable text, because SwapDoc doesn't do text recognition (OCR).</dd>

@@ -166,6 +166,9 @@ def site_globals():
         "INLINE_CSS": INLINE_CSS,
         "year": datetime.now(timezone.utc).year,
         "nav_guides": content.live_guides(),
+        "AUTHOR": content.AUTHOR,
+        "TESTED": content.TESTED,
+        "TESTED_LABEL": content.TESTED_LABEL,
         # For linking to a scheduled guide only once it's out (no broken links before).
         "guide_live": lambda slug: slug in content.GUIDE_BY_SLUG
                                    and content.is_live(content.GUIDE_BY_SLUG[slug]),

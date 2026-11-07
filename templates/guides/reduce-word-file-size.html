@@ -1,0 +1,108 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why is my Word document so big?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually because of pictures inserted at full size, embedded fonts, or embedded objects such as Excel charts that carry a whole spreadsheet. Old .doc files are also larger than the same document saved as .docx." } },
+        { "@type": "Question", "name": "How do I compress all pictures in Word at once?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Click any picture, choose Picture Format, Compress Pictures, untick Apply only to this picture, tick Delete cropped areas of pictures, choose a resolution such as 150 ppi, and click OK." } },
+        { "@type": "Question", "name": "How can I see what is taking up space in a Word file?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Make a copy of the .docx, rename the copy to end in .zip, and open it. The word/media folder holds the pictures and word/embeddings holds embedded objects, each with its size." } },
+        { "@type": "Question", "name": "Does saving as DOCX make a file smaller than DOC?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually, yes, because .docx is compressed. In our test, a 30 KB .doc became a 15 KB .docx with nothing lost." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> compress the pictures (<strong>Picture Format →
+Compress Pictures</strong>, applied to all), turn off embedded fonts if you don't need them,
+and save as <code>.docx</code> rather than <code>.doc</code>. Pictures are the cause nine times
+out of ten.</p>
+
+<h2>Step 1: find out what's taking the space</h2>
+<p>A <code>.docx</code> file is really a zip folder, so you can look inside:</p>
+<ol>
+  <li>Make a <strong>copy</strong> of the document (always work on a copy).</li>
+  <li>Rename the copy so it ends in <code>.zip</code> instead of <code>.docx</code>. If you can't
+  see file extensions on Windows, turn them on in File Explorer under <strong>View → Show → File
+  name extensions</strong>.</li>
+  <li>Open the zip. Look in <code>word/media</code> for pictures and in
+  <code>word/embeddings</code> for embedded spreadsheets and other objects. File sizes are listed
+  next to each one.</li>
+  <li>Delete the copy when you're done.</li>
+</ol>
+<p>This tells you which fix below will help most.</p>
+
+<h2>Step 2: compress the pictures</h2>
+<ol>
+  <li>Click any picture, then <strong>Picture Format → Compress Pictures</strong>.</li>
+  <li>Untick <strong>Apply only to this picture</strong>.</li>
+  <li>Tick <strong>Delete cropped areas of pictures</strong>. Word otherwise keeps the hidden,
+  cropped-off parts.</li>
+  <li>Choose <strong>150 ppi</strong> for on-screen documents or <strong>220 ppi</strong> for
+  printing, then <strong>OK</strong>.</li>
+</ol>
+<p>To make Word do this automatically for this document, go to <strong>File → Options →
+Advanced</strong>, find <strong>Image Size and Quality</strong>, tick <strong>Discard editing
+data</strong>, make sure <strong>Do not compress images in file</strong> is unticked, and set
+the default resolution.</p>
+<h3>Insert pictures at a sensible size</h3>
+<p>For future documents, resize big photos before inserting them, or use phone photos at a
+smaller size. A picture shown 10 cm wide on a page doesn't need to be 4,000 pixels wide.</p>
+
+<h2>Step 3: remove embedded fonts</h2>
+<p>If <strong>File → Options → Save → Embed fonts in the file</strong> is ticked, every font
+used is stored in the document, which can add several megabytes. Untick it unless you need
+other people to see an unusual font in the Word file itself. If you do need it, also tick
+<strong>Embed only the characters used in the document</strong> and <strong>Do not embed common
+system fonts</strong>.</p>
+<p>If the font only matters in the final version, send a PDF instead: it carries the fonts
+anyway. See <a href="/guides/why-fonts-change-in-pdf">why fonts change in a PDF</a>.</p>
+
+<h2>Step 4: replace embedded objects</h2>
+<p>A chart copied from Excel and pasted normally can carry the entire workbook with it. If the
+chart doesn't need to be edited in Word, right-click it, <strong>Cut</strong>, then use
+<strong>Paste Special → Picture (PNG)</strong>. The same applies to embedded PowerPoint slides
+and other objects.</p>
+
+<h2>Step 5: save as .docx</h2>
+<p>The old <code>.doc</code> format isn't compressed. When we tested SwapDoc's
+<a href="/doc-to-docx">DOC ⇄ DOCX converter</a>, a 30 KB <code>.doc</code> came back as a 15 KB
+<code>.docx</code>, with the text, table, picture, comments and tracked changes all intact. In
+Word, use <strong>File → Info → Convert</strong>, or <strong>File → Save As</strong> and choose
+Word Document (<code>.docx</code>).</p>
+
+<h2>Step 6: save a fresh copy</h2>
+<p>A document that has been edited for years can carry leftovers. <strong>File → Save
+As</strong> under a new name writes a clean file. Also check for:</p>
+<ul>
+  <li>Tracked changes and comments, which keep deleted text in the file. See
+  <a href="/guides/remove-tracked-changes-before-pdf">removing tracked changes and
+  comments</a>.</li>
+  <li>Hidden content, found with <strong>File → Info → Check for Issues → Inspect
+  Document</strong>.</li>
+</ul>
+
+<h2>Still too big to send?</h2>
+<p>Convert it to PDF with our <a href="/word-to-pdf">Word to PDF converter</a> if the recipient
+doesn't need to edit it, or share a link from OneDrive or Google Drive instead of attaching the
+file.{% if guide_live('reduce-pdf-file-size') %} If the PDF is too big as well, see
+<a href="/guides/reduce-pdf-file-size">how to reduce a PDF's file size</a>.{% endif %}</p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>Why is my Word document so big?</dt>
+  <dd>Full-size pictures, embedded fonts, embedded objects, or the old <code>.doc</code>
+  format.</dd>
+  <dt>How do I compress all pictures in Word at once?</dt>
+  <dd>Picture Format → Compress Pictures, untick "Apply only to this picture".</dd>
+  <dt>How can I see what is taking up space in a Word file?</dt>
+  <dd>Rename a copy to <code>.zip</code> and look in <code>word/media</code> and
+  <code>word/embeddings</code>.</dd>
+  <dt>Does saving as DOCX make a file smaller than DOC?</dt>
+  <dd>Usually. In our test, 30 KB became 15 KB.</dd>
+</dl>
+{% endblock %}

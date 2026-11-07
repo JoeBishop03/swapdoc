@@ -1,0 +1,106 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it better to send a CV as a PDF or Word document?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Send a PDF unless the job advert, application form or recruiter asks for Word. A PDF looks exactly as you designed it on any device. Recruitment agencies often ask for Word because they add their own branding before passing CVs to employers." } },
+        { "@type": "Question", "name": "Can applicant tracking systems read PDF CVs?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Modern applicant tracking systems read PDFs that contain real text, such as those saved from Word. Problems come from scanned CVs, text inside images or text boxes, and complicated multi-column layouts." } },
+        { "@type": "Question", "name": "What should I name my CV file?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use your name and the word CV, for example Jane-Smith-CV.pdf. Avoid names like CV-final-v3.docx, which look careless and get lost among other files." } },
+        { "@type": "Question", "name": "How do I check my CV can be read by a computer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open the PDF, select all the text and paste it into a plain text editor such as Notepad. If the text comes out in a sensible order with nothing missing, an applicant tracking system can read it too." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> send a PDF unless you're asked for Word. A PDF
+looks the same on every screen and printer, so your layout, fonts and page count stay exactly as
+you designed them. Send Word when an advert, form or recruitment agency asks for it, because
+they may need to edit it.</p>
+
+<h2>When to send a PDF</h2>
+<ul>
+  <li><strong>Applying directly to an employer</strong> by email or through their website.</li>
+  <li><strong>Your CV has a designed layout</strong>, with a particular font, columns, a sidebar
+  or a strict two-page limit.</li>
+  <li><strong>You've used a font others may not have</strong>, such as Aptos (Word's new
+  default) or anything downloaded. In a PDF, the font travels with the file.</li>
+  <li><strong>You want to stop accidental changes.</strong> It's easy to nudge a Word file while
+  reading it; a PDF stays put.</li>
+</ul>
+
+<h2>When to send Word</h2>
+<ul>
+  <li><strong>The advert or application form asks for <code>.doc</code> or
+  <code>.docx</code>.</strong> Always follow the instructions. Some older recruitment systems
+  only accept Word.</li>
+  <li><strong>A recruitment agency asks for it.</strong> Agencies commonly remove your contact
+  details and add their own branding before sending your CV to the employer.</li>
+  <li><strong>Someone is helping you edit it</strong>, such as a careers adviser, mentor or
+  friend.</li>
+</ul>
+<p>If you send Word, use a safe font such as Calibri or Arial and check how it looks in another
+app, such as Google Docs, before sending. If a form only accepts the old <code>.doc</code>
+format, our <a href="/doc-to-docx">DOC ⇄ DOCX converter</a> turns a <code>.docx</code> into one.</p>
+
+<h2>What about applicant tracking systems?</h2>
+<p>Many employers use an applicant tracking system (ATS) to collect and search applications. A
+modern ATS reads PDFs made from Word without trouble. What causes problems is the way the CV is
+built, not the format:</p>
+<ul>
+  <li><strong>Scanned or photographed CVs</strong> contain no real text. The system sees a
+  picture.</li>
+  <li><strong>Text inside images, text boxes or shapes</strong> may be skipped.</li>
+  <li><strong>Complex columns and tables</strong> can be read in the wrong order, mixing your
+  job titles with your skills list.</li>
+  <li><strong>Contact details in the header</strong> are ignored by some systems. Put your name,
+  phone and email in the main body.</li>
+  <li><strong>Unusual headings</strong> such as "My journey" may not be recognised. Stick to
+  "Experience", "Education" and "Skills".</li>
+</ul>
+
+<h3>The copy-and-paste test</h3>
+<p>Open your PDF, press <strong>Ctrl + A</strong> (<strong>Cmd + A</strong> on a Mac) to select
+everything, copy, and paste into Notepad or TextEdit. If the text comes out in a sensible order
+with nothing missing, a tracking system can read it. If sections are jumbled or missing,
+simplify the layout.</p>
+
+<h2>Checklist before you send</h2>
+<ol>
+  <li><strong>Make the PDF in Word</strong> with <strong>File → Save As → PDF</strong>, so your
+  fonts are embedded. Our <a href="/word-to-pdf">Word to PDF converter</a> also works, and our
+  tests show exactly which fonts it keeps.</li>
+  <li><strong>Remove tracked changes and comments</strong> left over from anyone who reviewed
+  it. See <a href="/guides/remove-tracked-changes-before-pdf">removing tracked changes before
+  making a PDF</a>.</li>
+  <li><strong>Check the page count</strong> in the PDF matches your Word document.</li>
+  <li><strong>Click every link</strong>, such as your email address, LinkedIn and portfolio.</li>
+  <li><strong>Name the file properly:</strong> <code>Firstname-Lastname-CV.pdf</code>.</li>
+  <li><strong>Keep it small:</strong> a text CV should be well under 1 MB. If it's bigger, a
+  large photo or logo is usually the cause.</li>
+  <li><strong>Do the copy-and-paste test</strong> above.</li>
+</ol>
+
+<h2>A note on UK CVs</h2>
+<p>UK employers generally don't expect a photo, date of birth or marital status on a CV, and
+leaving them out reduces the risk of unconscious bias. Two pages is the usual length for
+experienced candidates, one page for school leavers and graduates. Always check the advert, as
+some sectors, such as academia and medicine, have their own conventions.</p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>Is it better to send a CV as a PDF or Word document?</dt>
+  <dd>PDF, unless you're asked for Word.</dd>
+  <dt>Can applicant tracking systems read PDF CVs?</dt>
+  <dd>Yes, if the PDF contains real text. Avoid scans, text in images and complex columns.</dd>
+  <dt>What should I name my CV file?</dt>
+  <dd><code>Firstname-Lastname-CV.pdf</code>.</dd>
+  <dt>How do I check my CV can be read by a computer?</dt>
+  <dd>Copy all the text from the PDF and paste it into Notepad or TextEdit. It should read in
+  a sensible order.</dd>
+</dl>
+{% endblock %}

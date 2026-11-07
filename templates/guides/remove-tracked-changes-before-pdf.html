@@ -1,0 +1,113 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do tracked changes show up when you convert Word to PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Often, yes. In our test, a document with tracked changes converted to a PDF showing the changes as coloured, underlined and struck-through text. Accept or reject all changes in Word before converting." } },
+        { "@type": "Question", "name": "Does switching to No Markup remove tracked changes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. No Markup only hides them on your screen. The changes are still in the file, and anyone you send it to can show them again. Accept or reject them to remove them." } },
+        { "@type": "Question", "name": "How do I delete all comments in Word at once?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On the Review tab, click the arrow under Delete in the Comments group and choose Delete All Comments in Document." } },
+        { "@type": "Question", "name": "How do I check a Word document for hidden information before sharing it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In Word for Windows, go to File, Info, Check for Issues, Inspect Document. It finds comments, tracked changes, hidden text and personal information such as author names, and can remove them." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> in Word, go to <strong>Review → Accept → Accept
+All Changes and Stop Tracking</strong>, then <strong>Review → Delete → Delete All Comments in
+Document</strong>. Save, then make your PDF. Switching the view to "No Markup" only hides
+changes; it doesn't remove them.</p>
+
+<h2>Why it matters</h2>
+<p>When we tested SwapDoc's <a href="/word-to-pdf">Word to PDF converter</a> with a document
+that still had tracked changes, the PDF showed them all: new words underlined in colour, deleted
+words struck through, and a line in the margin. Comments were left out, but that varies between
+converters and settings, and Word itself can print them in a side panel.</p>
+<p>It's not just about looks. Deleted text can reveal earlier drafts: a different price, a
+negotiating position, or someone's frank opinion. Tracked changes and comments also carry the
+name of whoever made them. If you're sending a Word file rather than a PDF, everything is still
+inside it even when it's hidden on your screen.</p>
+
+<h2>Word for Windows</h2>
+<ol>
+  <li>Open the <strong>Review</strong> tab.</li>
+  <li>If <strong>Track Changes</strong> is highlighted, click it to turn it off, so your next
+  edits aren't tracked.</li>
+  <li>Click the arrow under <strong>Accept</strong> and choose <strong>Accept All Changes and
+  Stop Tracking</strong>. To go through them one by one instead, use <strong>Next</strong> and
+  <strong>Accept</strong> or <strong>Reject</strong>.</li>
+  <li>In the Comments group, click the arrow under <strong>Delete</strong> and choose
+  <strong>Delete All Comments in Document</strong>.</li>
+  <li>Save the document, then convert it.</li>
+</ol>
+
+<h3>Do a final check with Inspect Document</h3>
+<p>Go to <strong>File → Info → Check for Issues → Inspect Document</strong>, tick everything and
+click <strong>Inspect</strong>. Word lists any comments, revisions, hidden text and personal
+information (such as author names in the document properties) and offers a <strong>Remove
+All</strong> button for each. It's the quickest way to be sure nothing is left. Save a copy
+first if you might need the history later.</p>
+
+<h2>Word for Mac</h2>
+<ol>
+  <li>On the <strong>Review</strong> tab, turn off <strong>Track Changes</strong>.</li>
+  <li>Click the arrow next to <strong>Accept</strong> and choose <strong>Accept All Changes and
+  Stop Tracking</strong>.</li>
+  <li>Click the arrow next to <strong>Delete</strong> (in the comments area) and choose
+  <strong>Delete All Comments in Document</strong>.</li>
+  <li>Save, then use <strong>File → Save As → PDF</strong>, or upload it to a converter.</li>
+</ol>
+
+<h2>Google Docs</h2>
+<p>Google Docs calls tracked changes <em>suggestions</em>.</p>
+<ol>
+  <li>Go to <strong>Tools → Review suggested edits</strong>.</li>
+  <li>Click <strong>Accept all</strong> (or <strong>Reject all</strong>).</li>
+  <li>Open the comments panel (the speech-bubble icon at the top right) and resolve or delete
+  each comment.</li>
+  <li>Download with <strong>File → Download</strong> as PDF or Word.</li>
+</ol>
+<p>If you download as Word without doing this, suggestions arrive as tracked changes and
+comments as Word comments, ready for the next person to read.</p>
+
+<h2>LibreOffice Writer</h2>
+<ol>
+  <li>Go to <strong>Edit → Track Changes → Manage</strong> and click <strong>Accept
+  All</strong>.</li>
+  <li>Untick <strong>Edit → Track Changes → Record Changes</strong>.</li>
+  <li>To delete comments, right-click any comment and choose <strong>Delete All
+  Comments</strong>.</li>
+</ol>
+
+<h2>Already sent it?</h2>
+<p>If you've sent a Word file with tracked changes, the person receiving it can see the history.
+There's no way to pull it back, so send a corrected version and, if it's sensitive, ask them to
+delete the first one. If you sent a PDF showing markup, send a clean PDF with a short note.</p>
+
+<h2>A routine that prevents it</h2>
+<ul>
+  <li>Keep the reviewed draft (<code>Report-v3-with-comments.docx</code>) and make a clean copy
+  for sending (<code>Report-final.docx</code>).</li>
+  <li>Run Inspect Document on the clean copy.</li>
+  <li>Make the PDF from the clean copy and open it to check before you send it.</li>
+</ul>
+<p>Next step: <a href="/word-to-pdf">convert the clean copy to PDF</a>, or read
+<a href="/guides/pdf-vs-word">PDF or Word: which should you send?</a></p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>Do tracked changes show up when you convert Word to PDF?</dt>
+  <dd>Often, yes. In our test they appeared as coloured, underlined and struck-through text.
+  Accept or reject them before converting.</dd>
+  <dt>Does switching to No Markup remove tracked changes?</dt>
+  <dd>No. It only hides them on your screen. Anyone you send the file to can show them again.</dd>
+  <dt>How do I delete all comments in Word at once?</dt>
+  <dd>Review → arrow under Delete → Delete All Comments in Document.</dd>
+  <dt>How do I check a Word document for hidden information?</dt>
+  <dd>File → Info → Check for Issues → Inspect Document (Word for Windows).</dd>
+</dl>
+{% endblock %}

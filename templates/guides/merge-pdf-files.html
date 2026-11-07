@@ -1,0 +1,101 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I merge PDFs on a Mac for free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open the first PDF in Preview, choose View, Thumbnails, then drag the other PDF files into the thumbnail sidebar where you want them. Save with File, Export as PDF." } },
+        { "@type": "Question", "name": "How do I merge PDFs on Windows for free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Windows has no built-in tool. Use a free desktop app such as PDFsam Basic or PDF24 Creator, which merge files on your own computer, or a free online merge tool for non-confidential files." } },
+        { "@type": "Question", "name": "How do I combine PDFs on an iPhone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In the Files app, tap Select, choose the PDFs, tap the More button and choose Create PDF. A new combined PDF appears in the same folder." } },
+        { "@type": "Question", "name": "Can I merge Word documents before making a PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. In Word, place the cursor where you want the next document, then use Insert, Object, Text from File and choose the other Word files. Then save the combined document as one PDF." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> on a Mac, drag PDFs into Preview's thumbnail
+sidebar. On an iPhone, select them in Files and choose <strong>Create PDF</strong>. On Windows,
+use a free app such as PDFsam Basic. If you're starting from Word documents, combine them in
+Word first and make one PDF.</p>
+
+<h2>Mac: Preview (built in)</h2>
+<ol>
+  <li>Open the first PDF in Preview.</li>
+  <li>Choose <strong>View → Thumbnails</strong> to show the page sidebar.</li>
+  <li>Drag the next PDF from Finder into the sidebar. Drop it between pages, or after the last
+  page, wherever it should go.</li>
+  <li>Repeat for any other files. Drag thumbnails up and down to reorder pages.</li>
+  <li>Choose <strong>File → Export as PDF</strong> to save the combined file under a new
+  name.</li>
+</ol>
+<p>To remove a page, select its thumbnail and press <strong>Delete</strong>. Check the page
+order in the sidebar before you export.</p>
+
+<h2>iPhone and iPad: Files app</h2>
+<ol>
+  <li>Open the <strong>Files</strong> app and go to the folder with your PDFs.</li>
+  <li>Tap <strong>Select</strong> (in the ⋯ menu on newer versions) and tap each PDF in the order
+  you want them.</li>
+  <li>Tap the <strong>More</strong> button (⋯) and choose <strong>Create PDF</strong>.</li>
+</ol>
+<p>The combined PDF appears in the same folder. Rename it with a long press →
+<strong>Rename</strong>.</p>
+
+<h2>Windows: free desktop apps</h2>
+<p>Windows doesn't include a PDF merger, but these free apps work on your own computer, so your
+files aren't uploaded anywhere:</p>
+<ul>
+  <li><strong>PDFsam Basic</strong> (pdfsam.org): free and open source. Choose
+  <strong>Merge</strong>, add your files, put them in order, and click <strong>Run</strong>.</li>
+  <li><strong>PDF24 Creator</strong> (pdf24.org): a free toolbox for Windows with merge, split
+  and compress tools.</li>
+</ul>
+<p>Download apps only from their official websites, and decline any extra software offered
+during installation.</p>
+
+<h2>Online tools</h2>
+<p>Free online PDF mergers, including Adobe's, are quick for everyday documents. For anything
+confidential, such as bank statements, ID or medical letters, a desktop app or the Mac and iPhone
+tools above are safer because the files never leave your device.</p>
+
+<h2>Starting from Word documents? Combine them first</h2>
+<p>If your PDFs started life as Word files, merging the Word documents and making one PDF gives
+a cleaner result, with page numbers running all the way through.</p>
+<ol>
+  <li>Open the first document in Word and click where the next one should start (usually the
+  end). Insert a page break with <strong>Ctrl + Enter</strong> if needed.</li>
+  <li>Go to <strong>Insert → Object</strong> (click the small arrow) <strong>→ Text from
+  File</strong>.</li>
+  <li>Choose one or more Word files. Hold <strong>Ctrl</strong> to pick several; they're
+  inserted in alphabetical order, so number the file names if order matters.</li>
+  <li>Check the result, then make one PDF with <strong>File → Save As → PDF</strong>, or upload
+  it to our <a href="/word-to-pdf">Word to PDF converter</a>.</li>
+</ol>
+<p>If some of the files are old <code>.doc</code> documents and won't insert cleanly, convert
+them with our <a href="/doc-to-docx">DOC ⇄ DOCX converter</a> first.</p>
+
+<h2>After merging</h2>
+<ul>
+  <li><strong>Check the order</strong> and that no pages are missing.</li>
+  <li><strong>Check the size</strong>. Merging several large PDFs creates a large file;
+  see{% if guide_live('reduce-pdf-file-size') %} <a href="/guides/reduce-pdf-file-size">how to reduce a PDF's file size</a>{% else %} our guides for tips on shrinking pictures{% endif %}.</li>
+  <li><strong>Give it a clear name</strong>, such as
+  <code>Application-Jane-Smith-all-documents.pdf</code>.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>How do I merge PDFs on a Mac for free?</dt>
+  <dd>Preview → View → Thumbnails, then drag the other PDFs into the sidebar.</dd>
+  <dt>How do I merge PDFs on Windows for free?</dt>
+  <dd>Use a free desktop app such as PDFsam Basic or PDF24 Creator.</dd>
+  <dt>How do I combine PDFs on an iPhone?</dt>
+  <dd>Files app → Select → choose the PDFs → More → Create PDF.</dd>
+  <dt>Can I merge Word documents before making a PDF?</dt>
+  <dd>Yes: Insert → Object → Text from File, then save as one PDF.</dd>
+</dl>
+{% endblock %}

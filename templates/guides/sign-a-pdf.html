@@ -1,0 +1,114 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I sign a PDF for free on Windows?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open the PDF in the free Adobe Acrobat Reader, choose Fill & Sign, then Sign, and add your signature by typing, drawing or using a picture of it. Place it on the page and save." } },
+        { "@type": "Question", "name": "How do I sign a PDF on a Mac?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open it in Preview, click the Markup button, then the Sign button. Create a signature with your trackpad, your camera or your iPhone, then click it to add it and drag it into place." } },
+        { "@type": "Question", "name": "Is an electronic signature legally valid in the UK?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For most everyday documents, such as contracts, forms and letters, yes. Some documents have special rules, such as wills and some deeds and property documents, so check before signing those electronically." } },
+        { "@type": "Question", "name": "What is the difference between an electronic and a digital signature?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An electronic signature is any electronic mark of agreement, such as a typed name or a drawn signature. A digital signature is a specific kind of electronic signature that uses a certificate to prove who signed and that the document hasn't changed since." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> on Windows, use <strong>Fill &amp; Sign</strong>
+in the free Adobe Acrobat Reader. On a Mac, use the <strong>Sign</strong> tool in Preview. On an
+iPhone, use <strong>Markup</strong>. You don't need to print, sign and scan.</p>
+
+<h2>Windows: Adobe Acrobat Reader (free)</h2>
+<ol>
+  <li>Download and install Adobe Acrobat Reader from adobe.com if you don't have it. It's free;
+  you don't need the paid Acrobat Pro.</li>
+  <li>Open the PDF and choose <strong>Fill &amp; Sign</strong> (in the tools list or the right
+  side panel, depending on version).</li>
+  <li>Click <strong>Sign</strong> (or the pen icon), then <strong>Add signature</strong>.</li>
+  <li>Type your name and pick a style, draw with your mouse or trackpad, or upload a photo of
+  your signature.</li>
+  <li>Click on the page to place it, resize it, then save the PDF.</li>
+</ol>
+<p>Reader remembers your signature for next time. The same <strong>Fill &amp; Sign</strong>
+tool adds text, ticks and dates to forms that don't have fillable boxes.</p>
+
+<h2>Mac: Preview (built in)</h2>
+<ol>
+  <li>Open the PDF in Preview.</li>
+  <li>Click the <strong>Markup</strong> button (a pen tip) to show the markup toolbar.</li>
+  <li>Click the <strong>Sign</strong> button (a signature squiggle) and create a signature:
+    <ul>
+      <li><strong>Trackpad:</strong> sign with your finger, then press any key.</li>
+      <li><strong>Camera:</strong> sign on white paper and hold it up to the camera.</li>
+      <li><strong>iPhone or iPad:</strong> sign on the device's screen.</li>
+    </ul>
+  </li>
+  <li>Click your signature to add it, drag it into place, resize it, and save.</li>
+</ol>
+
+<h2>iPhone and iPad</h2>
+<ol>
+  <li>Open the PDF in the <strong>Files</strong> app (or from an email attachment).</li>
+  <li>Tap the <strong>Markup</strong> button (a pen tip).</li>
+  <li>Tap <strong>+</strong> and choose <strong>Add Signature</strong>, then sign with your
+  finger.</li>
+  <li>Drag it into place and tap <strong>Done</strong>.</li>
+</ol>
+
+<h2>Android</h2>
+<p>Install the free Adobe Acrobat Reader app, open the PDF, and use <strong>Fill &amp;
+Sign</strong> as on Windows. Many Android phones' built-in file or PDF viewers also have a
+drawing or signature option.</p>
+
+<h2>Signing a Word document instead?</h2>
+<p>If you're preparing the document yourself, it's easiest to add your signature before making
+the PDF:</p>
+<ol>
+  <li>Sign on white paper and photograph it in good light, or scan it.</li>
+  <li>In Word, <strong>Insert → Pictures</strong> and add the image. Crop it close, and set
+  <strong>Wrap Text → In Front of Text</strong> to position it over the signature line.</li>
+  <li>Convert to PDF with Word's <strong>File → Save As → PDF</strong> or our
+  <a href="/word-to-pdf">Word to PDF converter</a>.</li>
+</ol>
+
+<h2>Is an electronic signature legally valid?</h2>
+<p>In the UK, electronic signatures are generally accepted for most everyday documents:
+employment contracts, tenancy agreements, consent forms, invoices and letters. A typed name or a
+drawn signature can both count, as long as it's clear you intended to sign.</p>
+<p>Some documents have special requirements. <strong>Wills</strong> in England and Wales still
+need to be signed on paper in front of witnesses, and some <strong>deeds and property
+documents</strong> have their own rules about witnessing and registration. If you're unsure,
+ask whoever sent you the document, or a solicitor. This is general information, not legal
+advice.</p>
+
+<h3>Electronic vs digital signatures</h3>
+<p>An <em>electronic signature</em> is any electronic sign of agreement: a typed name, a drawn
+squiggle or a pasted picture. A <em>digital signature</em> uses a security certificate to prove
+who signed and that the document hasn't changed since. Services such as DocuSign and Adobe
+Acrobat Sign provide these, along with an audit trail of who signed when. They're common for
+business and legal agreements, and the sender usually sets them up for you.</p>
+
+<h2>Keep your signature safe</h2>
+<ul>
+  <li>Don't leave a picture of your signature in shared folders or email it around.</li>
+  <li>Send signed documents as PDFs, not Word files, so the signature can't simply be copied
+  out and moved.</li>
+  <li>Keep a copy of everything you sign.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>How do I sign a PDF for free on Windows?</dt>
+  <dd>Adobe Acrobat Reader → Fill &amp; Sign → Sign.</dd>
+  <dt>How do I sign a PDF on a Mac?</dt>
+  <dd>Preview → Markup → Sign.</dd>
+  <dt>Is an electronic signature legally valid in the UK?</dt>
+  <dd>For most everyday documents, yes. Wills and some deeds have special rules.</dd>
+  <dt>What is the difference between an electronic and a digital signature?</dt>
+  <dd>A digital signature is an electronic signature backed by a certificate that proves who
+  signed and that nothing changed.</dd>
+</dl>
+{% endblock %}

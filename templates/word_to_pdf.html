@@ -13,7 +13,9 @@
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "Will my PDF look exactly like my Word document?",
-          "acceptedAnswer": { "@type": "Answer", "text": "In most cases, yes. Text, images, tables, headers and footers are kept. The main cause of differences is a font that isn't available on the converting server, which is then swapped for a similar one. Using common fonts such as Arial, Calibri or Times New Roman avoids this." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "In most cases, yes. Text, images, tables, headers and footers are kept. Documents in Calibri, Cambria, Arial, Times New Roman or Courier New come out with identical line breaks. Other fonts, including Aptos, are swapped for a close match, which can move a line or two." } },
+        { "@type": "Question", "name": "Will comments and tracked changes show in the PDF?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Comments are left out. Tracked changes are shown as coloured markup, so accept or reject them in Word before converting." } },
         { "@type": "Question", "name": "Can I convert an old .doc file?",
           "acceptedAnswer": { "@type": "Answer", "text": "Yes. Both .docx (Word 2007 and later) and the older .doc format (Word 97 to 2003) are supported." } },
         { "@type": "Question", "name": "Do links still work in the PDF?",
@@ -64,18 +66,70 @@
 
   {{ ad(AD_SLOT_CONTENT) }}
 
+  <section id="tested">
+    <h2>What we tested, and what came out</h2>
+    <p class="tested">Tested on {{ TESTED_LABEL }} on the live converter.</p>
+    <p>We built a Word document packed with the things that usually go wrong, converted it
+    here, and checked the PDF with software that lists every font, link and page. It took
+    under a second.</p>
+    <table>
+      <thead><tr><th>In your Word document</th><th>In the PDF</th></tr></thead>
+      <tbody>
+        <tr><td>Headings, bold and coloured text</td><td>Kept</td></tr>
+        <tr><td>Headers and footers with page numbers</td><td>Kept, with the right number on each page</td></tr>
+        <tr><td>Tables, including merged and shaded cells</td><td>Kept</td></tr>
+        <tr><td>Pictures</td><td>Kept, same size and position</td></tr>
+        <tr><td>Web links</td><td>Kept and still clickable</td></tr>
+        <tr><td>A landscape page in a portrait document</td><td>Kept landscape</td></tr>
+        <tr><td>Bullets and numbered lists</td><td>Kept</td></tr>
+        <tr><td>Accents and symbols (é, ł, ø, £, €, ©, ½)</td><td>Kept</td></tr>
+        <tr><td>Greek, Cyrillic, Arabic, Chinese and Japanese</td><td>Kept</td></tr>
+        <tr><td>Emoji</td><td>Kept, in colour</td></tr>
+        <tr><td>Tracked changes</td><td><strong>Shown as coloured markup</strong>, with deleted words struck through. Accept or reject them first.</td></tr>
+        <tr><td>Comments</td><td>Left out of the PDF</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Which font your PDF uses</h3>
+    <p>A converter can only draw text in fonts it has. For the most common Microsoft fonts,
+    SwapDoc has exact stand-ins: same letter widths, so every line and page breaks in the same
+    place as in Word. For other popular fonts it uses the closest match it has.</p>
+    <table>
+      <thead><tr><th>Font in your document</th><th>Used in the PDF</th><th>Line breaks</th></tr></thead>
+      <tbody>
+        <tr><td>Calibri</td><td>Carlito</td><td>Same as Word</td></tr>
+        <tr><td>Cambria</td><td>Caladea</td><td>Same as Word</td></tr>
+        <tr><td>Arial</td><td>Liberation Sans</td><td>Same as Word</td></tr>
+        <tr><td>Times New Roman</td><td>Liberation Serif</td><td>Same as Word</td></tr>
+        <tr><td>Courier New</td><td>Liberation Mono</td><td>Same as Word</td></tr>
+        <tr><td>Aptos (Word's default since 2023), Segoe UI</td><td>Liberation Sans</td><td>May differ slightly</td></tr>
+        <tr><td>Verdana, Tahoma</td><td>DejaVu Sans</td><td>May differ slightly</td></tr>
+        <tr><td>Georgia</td><td>Liberation Serif</td><td>May differ slightly</td></tr>
+        <tr><td>Garamond</td><td>EB Garamond</td><td>May differ slightly</td></tr>
+        <tr><td>Century Gothic</td><td>URW Gothic</td><td>May differ slightly</td></tr>
+        <tr><td>Comic Sans MS</td><td>Comic Neue</td><td>May differ slightly</td></tr>
+        <tr><td>Anything else</td><td>DejaVu Sans</td><td>Likely to differ</td></tr>
+      </tbody>
+    </table>
+    <p>If your document must keep an exact font, such as a brand font on a CV or letterhead,
+    make the PDF in Word itself with <strong>File → Save As → PDF</strong>. Word uses the fonts
+    on your own computer. Our guide <a href="/guides/why-fonts-change-in-pdf">Why your font
+    changed when you converted to PDF</a> explains the options.</p>
+  </section>
+
   <section>
     <h2>Tips for a perfect PDF</h2>
     <h3>Use common fonts</h3>
-    <p>The conversion can only use fonts it has installed. Standard fonts such as Arial,
-    Calibri, Cambria, Times New Roman and Georgia convert reliably. If you've used an unusual
-    or downloaded font, it may be replaced with a similar one. If the exact font matters, see
-    our guide to <a href="/guides/fix-formatting-after-converting">fixing formatting after
-    converting</a>.</p>
-    <h3>Accept or remove tracked changes and comments</h3>
-    <p>If your document still has tracked changes or comments, decide whether you want them in
-    the PDF. In Word, go to <strong>Review</strong>, then accept or reject changes and delete
-    comments before converting.</p>
+    <p>Calibri, Cambria, Arial, Times New Roman and Courier New come out identical to Word.
+    Newer documents use Aptos, which converts to a very similar font; check that nothing has
+    moved onto an extra page.</p>
+    <h3>Accept or reject tracked changes first</h3>
+    <p>In our test, tracked changes appeared in the PDF as coloured, underlined and
+    struck-through text, which you rarely want in a finished document. In Word, go to
+    <strong>Review → Accept → Accept All Changes</strong> (or reject the ones you don't want),
+    then save and convert. Comments are left out of the PDF automatically. Our guide to
+    <a href="/guides/remove-tracked-changes-before-pdf">removing tracked changes and comments</a>
+    has the steps for Word, Google Docs and Mac.</p>
     <h3>Use real headings</h3>
     <p>Headings made with Word's Heading styles (rather than just bold, larger text) make
     the document easier to read with a screen reader and easier to navigate.</p>
@@ -88,9 +142,13 @@
     <h2>Word to PDF questions</h2>
     <dl class="faq">
       <dt>Will my PDF look exactly like my Word document?</dt>
-      <dd>In most cases, yes. Text, images, tables, headers and footers are kept. The main
-      cause of differences is a font that isn't available on our server, which is then
-      swapped for a similar one. Using common fonts avoids this.</dd>
+      <dd>In most cases, yes. Text, images, tables, headers and footers are kept. Documents
+      in Calibri, Cambria, Arial, Times New Roman or Courier New come out with identical line
+      breaks. Other fonts, including Aptos, are swapped for a close match, which can move a
+      line or two.</dd>
+      <dt>Will comments and tracked changes show in the PDF?</dt>
+      <dd>Comments are left out. Tracked changes are shown as coloured markup, so accept or
+      reject them in Word before converting.</dd>
       <dt>Can I convert an old .doc file?</dt>
       <dd>Yes. Both <code>.docx</code> (Word 2007 and later) and the older <code>.doc</code>
       format (Word 97 to 2003) are supported. Not sure which you have? Read

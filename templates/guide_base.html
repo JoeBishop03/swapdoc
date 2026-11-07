@@ -11,7 +11,7 @@
       "inLanguage": "en-GB",
       "mainEntityOfPage": "{{ SITE }}{{ path }}",
       "image": "{{ SITE }}/static/og.png",
-      "author": { "@id": "{{ SITE }}/#org" },
+      "author": { "@id": "{{ SITE }}/about#who" },
       "publisher": { "@id": "{{ SITE }}/#org" }
     },
     {
@@ -30,8 +30,12 @@
   <main id="main">
     <article class="article">
       <h1>{{ guide.title }}</h1>
-      <p class="meta">Updated <time datetime="{{ guide.updated }}">{{ guide.updated_label }}</time> · {{ guide.minutes }} min read</p>
+      <p class="meta">By <a href="{{ AUTHOR.url }}" rel="author">{{ AUTHOR.name }}</a> · Updated <time datetime="{{ guide.updated }}">{{ guide.updated_label }}</time> · {{ guide.minutes }} min read</p>
       {% block article %}{% endblock %}
+      <div class="author-box">
+        <p class="author-name">Written by {{ AUTHOR.name }}</p>
+        <p>{{ AUTHOR.bio }} Spotted a mistake or out-of-date step? <a href="/contact">Let us know</a>.</p>
+      </div>
     </article>
   </main>
 
@@ -43,6 +47,7 @@
     <div class="cta-row">
       <a class="btn-link" href="/word-to-pdf">Word to PDF</a>
       <a class="btn-link" href="/pdf-to-word">PDF to Word</a>
+      <a class="btn-link" href="/doc-to-docx">DOC ⇄ DOCX</a>
     </div>
   </section>
 

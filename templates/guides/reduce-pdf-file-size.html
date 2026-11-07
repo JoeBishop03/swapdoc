@@ -1,0 +1,112 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why is my PDF so large?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Almost always because of pictures: full-resolution photos from a phone or camera, or pages scanned in colour at high resolution. Text and embedded fonts take up very little space." } },
+        { "@type": "Question", "name": "How do I make a PDF smaller in Word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Compress the pictures first (select a picture, Picture Format, Compress Pictures, untick Apply only to this picture and choose a lower resolution). Then use File, Save As, choose PDF and select Minimum size (publishing online) before saving." } },
+        { "@type": "Question", "name": "How do I reduce a PDF's size on a Mac for free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open it in Preview, choose File, Export, and set Quartz Filter to Reduce File Size. Check the result, because this filter can make pictures noticeably blurry." } },
+        { "@type": "Question", "name": "What size should a PDF be for email?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Gmail allows attachments up to 25 MB and many other email services allow around 20 MB, but smaller is better: many job sites and online forms limit uploads to 2 to 10 MB." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> big PDFs are nearly always big because of
+pictures. The best fix is to shrink the pictures in the original document and make the PDF
+again. If you only have the PDF, a Mac can compress it with Preview, and on Windows you can
+re-save it through a free PDF tool.</p>
+
+<h2>What's making it big?</h2>
+<p>Text costs almost nothing: a 20-page report of plain text is typically well under 1 MB.
+The usual culprits are:</p>
+<ul>
+  <li><strong>Photos straight from a phone or camera.</strong> A modern phone photo is often 3 to
+  5 MB on its own, at a resolution far higher than a printed page needs.</li>
+  <li><strong>Scanned pages</strong>, especially in colour at high resolution. Every page is a
+  picture.</li>
+  <li><strong>Screenshots pasted in as PNG</strong> images, which can be large.</li>
+  <li><strong>Many embedded fonts</strong>, usually a small part of the total.</li>
+</ul>
+
+<h2>Best fix: shrink the pictures before making the PDF</h2>
+<p>If you have the Word document, fix it there. You keep control over quality, and the text
+stays perfectly sharp.</p>
+<ol>
+  <li>Click any picture, then <strong>Picture Format → Compress Pictures</strong>.</li>
+  <li>Untick <strong>Apply only to this picture</strong> so it affects all of them.</li>
+  <li>Tick <strong>Delete cropped areas of pictures</strong>.</li>
+  <li>Choose a resolution: <strong>150 ppi (Web)</strong> is fine for documents that will be read
+  on screen; <strong>220 ppi (Print)</strong> for documents that will be printed.</li>
+  <li>Click <strong>OK</strong>, save, then make the PDF.</li>
+</ol>
+{% if guide_live('reduce-word-file-size') %}<p>Our guide to <a href="/guides/reduce-word-file-size">making a Word document smaller</a>
+covers more ways to slim the original.</p>{% endif %}
+
+<h3>Then choose "Minimum size" when saving</h3>
+<p>In Word for Windows, go to <strong>File → Save As</strong>, choose <strong>PDF</strong> as
+the file type, then under "Optimize for" pick <strong>Minimum size (publishing online)</strong>
+and save. This reduces picture quality further. Use <strong>Standard</strong> if the document
+will be printed.</p>
+<p>You can also convert the slimmed Word file with our <a href="/word-to-pdf">Word to PDF
+converter</a>, which keeps your pictures at the size they are in the document.</p>
+
+<h2>Only have the PDF?</h2>
+<h3>On a Mac: Preview</h3>
+<ol>
+  <li>Open the PDF in Preview.</li>
+  <li>Choose <strong>File → Export</strong>.</li>
+  <li>Set <strong>Quartz Filter</strong> to <strong>Reduce File Size</strong> and save it under a
+  new name.</li>
+</ol>
+<p>This is aggressive: it can shrink a file enormously but make photos blurry. Always open the
+result and check it.</p>
+
+<h3>On Windows</h3>
+<p>Windows has no built-in PDF compressor. Options:</p>
+<ul>
+  <li><strong>Convert it back to Word and re-save.</strong> Convert the PDF with our
+  <a href="/pdf-to-word">PDF to Word converter</a>, compress the pictures as above, and make a
+  new PDF. This suits text documents best; the layout may need a little tidying.</li>
+  <li><strong>A free PDF tool</strong> with a "compress" option, such as the free desktop app
+  PDF24 Creator or Adobe's free online Compress PDF tool. Read the privacy terms of any online
+  tool before uploading anything confidential.</li>
+</ul>
+
+<h3>For scanned documents</h3>
+<p>If you can, scan again with better settings: <strong>greyscale or black and white</strong>
+instead of colour, at <strong>200 to 300 dpi</strong>. A black-and-white text page at 300 dpi
+is usually a fraction of the size of the same page in colour. Phone scanning apps often have a
+"document" or "black and white" mode that does this.</p>
+
+<h2>How small does it need to be?</h2>
+<table>
+  <thead><tr><th>Where it's going</th><th>Typical limit</th></tr></thead>
+  <tbody>
+    <tr><td>Gmail attachment</td><td>25 MB</td></tr>
+    <tr><td>Most other email services</td><td>Around 20 MB</td></tr>
+    <tr><td>Job sites and application forms</td><td>Often 2 to 5 MB</td></tr>
+    <tr><td>Council, school and government forms</td><td>Often 5 to 10 MB</td></tr>
+    <tr><td>SwapDoc uploads</td><td>25 MB</td></tr>
+  </tbody>
+</table>
+<p>These limits vary and change, so check the page you're uploading to. For anything too big to
+email, a shared link from OneDrive, Google Drive or iCloud is often easier than compressing.</p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>Why is my PDF so large?</dt>
+  <dd>Pictures: full-size photos or high-resolution colour scans.</dd>
+  <dt>How do I make a PDF smaller in Word?</dt>
+  <dd>Compress the pictures, then Save As PDF with "Minimum size (publishing online)".</dd>
+  <dt>How do I reduce a PDF's size on a Mac for free?</dt>
+  <dd>Preview → File → Export → Quartz Filter: Reduce File Size.</dd>
+  <dt>What size should a PDF be for email?</dt>
+  <dd>Under 20 MB for most email, but under 2 to 5 MB for many upload forms.</dd>
+</dl>
+{% endblock %}

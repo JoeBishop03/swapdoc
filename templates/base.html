@@ -50,7 +50,16 @@
       "name": "SwapDoc",
       "url": "{{ SITE }}/",
       "logo": "{{ SITE }}/static/apple-touch-icon.png",
-      "email": "joe.bishop@swapdoc.co.uk"
+      "email": "joe.bishop@swapdoc.co.uk",
+      "founder": { "@id": "{{ SITE }}/about#who" }
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ SITE }}/about#who",
+      "name": {{ AUTHOR.name|tojson }},
+      "url": "{{ SITE }}{{ AUTHOR.url }}",
+      "description": {{ AUTHOR.bio|tojson }},
+      "worksFor": { "@id": "{{ SITE }}/#org" }
     }{% block structured_data %}{% endblock %}
   ]
 }

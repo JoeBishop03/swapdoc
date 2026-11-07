@@ -74,13 +74,36 @@
 
   {{ ad(AD_SLOT_CONTENT) }}
 
+  <section id="tested">
+    <h2>What we tested, and what came out</h2>
+    <p class="tested">Tested on {{ TESTED_LABEL }} on the live converter.</p>
+    <p>We converted a 3-page <code>.docx</code> to <code>.doc</code>, then converted that
+    <code>.doc</code> back to <code>.docx</code>, and compared the final file with the
+    original. Each step took under a second.</p>
+    <table>
+      <thead><tr><th>In the original</th><th>After .docx → .doc → .docx</th></tr></thead>
+      <tbody>
+        <tr><td>Text, headings and fonts</td><td>Kept</td></tr>
+        <tr><td>Table with merged and shaded cells</td><td>Kept</td></tr>
+        <tr><td>Picture</td><td>Kept</td></tr>
+        <tr><td>Web link</td><td>Kept and clickable</td></tr>
+        <tr><td>Headers and footers with page numbers</td><td>Kept</td></tr>
+        <tr><td>Comments</td><td>Kept</td></tr>
+        <tr><td>Tracked changes</td><td>Kept, still waiting to be accepted or rejected</td></tr>
+        <tr><td>Landscape page</td><td>Kept</td></tr>
+        <tr><td>Accents, £, Arabic</td><td>Kept</td></tr>
+        <tr><td>File size</td><td>The <code>.doc</code> was 30&nbsp;KB; turning it back into <code>.docx</code> gave 15&nbsp;KB, because <code>.docx</code> is compressed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
   <section>
     <h2>What to expect</h2>
     <h3>DOC to DOCX</h3>
     <p>This direction is the easy one: <code>.docx</code> can hold everything a <code>.doc</code> can,
-    so text, tables, pictures, headers, footers and comments all come across. Occasionally line
-    spacing or a page break moves slightly, because newer Word lays documents out with updated
-    rules.</p>
+    so text, tables, pictures, headers, footers, comments and tracked changes all come across.
+    Occasionally line spacing or a page break moves slightly, because newer Word lays documents
+    out with updated rules.</p>
     <h3>DOCX to DOC</h3>
     <p><code>.doc</code> is a 2003-era format, so anything newer has to be simplified. Ordinary
     documents convert fine. Features to check afterwards:</p>

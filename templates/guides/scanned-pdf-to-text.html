@@ -1,0 +1,114 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How do I know if a PDF is scanned?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Try to select a word with your mouse, or search for a word with Ctrl + F (Cmd + F on a Mac). If you can't select text or the search finds nothing that's clearly on the page, the PDF is a scan or picture." } },
+        { "@type": "Question", "name": "What is OCR?",
+          "acceptedAnswer": { "@type": "Answer", "text": "OCR (optical character recognition) is software that looks at a picture of text and works out which letters it shows, producing text you can edit, search and copy." } },
+        { "@type": "Question", "name": "What is the best free way to convert a scanned PDF to Word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For most people, Google Docs: upload the PDF to Google Drive, right-click it and choose Open with, Google Docs. The text is recognised and you can download it as a Word file. It works best on clear, straight, single-column pages." } },
+        { "@type": "Question", "name": "Why does converting a scanned PDF to Word give me pictures?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A scanned page is a photo of text. A normal PDF to Word converter keeps that photo, so you get a Word file with a picture of each page. You need OCR to turn the picture into text." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> a scanned PDF is a picture of text, so a normal
+PDF to Word converter gives you pictures back. You need OCR (text recognition). The easiest free
+option is Google Docs: upload the PDF to Google Drive, then <strong>right-click → Open with →
+Google Docs</strong>.</p>
+
+<h2>Is your PDF scanned?</h2>
+<p>Open it and try either of these:</p>
+<ul>
+  <li><strong>Select a word</strong> by dragging over it. If the whole page highlights as one
+  block, or nothing highlights, it's a picture.</li>
+  <li><strong>Search</strong> with <strong>Ctrl + F</strong> (<strong>Cmd + F</strong> on a Mac)
+  for a word you can see. If it isn't found, the text isn't real text.</li>
+</ul>
+<p>Scans come from scanners, phone scanning apps and "scan to email" office printers. PDFs saved
+from Word, websites and most online forms contain real text and convert directly with our
+<a href="/pdf-to-word">PDF to Word converter</a>.</p>
+
+<h2>What happens if you convert a scan without OCR</h2>
+<p>We tested this. We turned a 3-page document into a scanned PDF and converted it with
+SwapDoc's PDF to Word converter. The Word file had a picture of each page and no editable
+text at all. That's what any converter without OCR will do. Use one of the methods below
+instead.</p>
+
+<h2>1. Google Docs (any computer, free)</h2>
+<ol>
+  <li>Go to <strong>drive.google.com</strong> and sign in with a Google account.</li>
+  <li>Click <strong>New → File upload</strong> and choose your PDF.</li>
+  <li>Right-click the uploaded file and choose <strong>Open with → Google Docs</strong>.</li>
+  <li>A new document opens with the recognised text below an image of each page. Delete the
+  images if you don't need them.</li>
+  <li>To get a Word file: <strong>File → Download → Microsoft Word (.docx)</strong>.</li>
+</ol>
+<p>Google says this works best on files of 2 MB or less, with clear text in common fonts. It
+keeps bold, italics and paragraphs reasonably well, but tables and columns usually need
+re-building.</p>
+
+<h2>2. Microsoft OneNote (Windows, free)</h2>
+<ol>
+  <li>Save the scanned page as a picture, or take a screenshot of it. Then, in OneNote, use
+  <strong>Insert → Pictures</strong> to add it to a page.</li>
+  <li>Right-click the picture and choose <strong>Copy Text from Picture</strong>.</li>
+  <li>Paste into Word.</li>
+</ol>
+<p>Good for a few pages at a time.</p>
+
+<h2>3. Mac Preview and Live Text (Mac, iPhone, iPad)</h2>
+<p>Recent versions of macOS and iOS recognise text in pictures automatically. Open the scan in
+Preview, hover over the text, and drag to select it as if it were normal text. Copy and paste
+into your document. On an iPhone, open the PDF or photo, press and hold on the text, and choose
+<strong>Copy</strong>.</p>
+
+<h2>4. Windows Snipping Tool (Windows 11)</h2>
+<p>Open the scanned page on screen, press <strong>Windows + Shift + S</strong> and snip the
+area. Open the snip in Snipping Tool and click <strong>Text actions</strong> to select and copy
+the text. Quick for a paragraph or a table cell.</p>
+
+<h2>5. Google Lens (Android)</h2>
+<p>Point the camera at the paper, or open a screenshot in Google Photos, and tap
+<strong>Lens → Text</strong> to select and copy. Handy for short documents you still have on
+paper.</p>
+
+<h2>Getting the best results</h2>
+<ul>
+  <li><strong>Scan at 300 dpi</strong>, in black and white or greyscale, for text documents.</li>
+  <li><strong>Keep the page straight</strong> and flat. Curled or skewed lines confuse OCR.</li>
+  <li><strong>Good contrast</strong>: dark text on a clean background. Faded print and coloured
+  paper reduce accuracy.</li>
+  <li><strong>Proofread</strong>, especially numbers, names and punctuation. OCR commonly
+  confuses <code>0</code> and <code>O</code>, <code>1</code> and <code>l</code>, and
+  <code>rn</code> and <code>m</code>.</li>
+  <li><strong>Handwriting</strong> is much less reliable than print with any free tool.</li>
+</ul>
+
+<h2>Keep private documents private</h2>
+<p>Bank statements, medical letters and ID documents are best kept on your own device: Live
+Text on a Mac or iPhone and Snipping Tool on Windows work without uploading the file to a new
+service.</p>
+<p>Once you have the text in Word, our guide to
+<a href="/guides/fix-formatting-after-converting">fixing formatting after converting</a> helps
+with tidying up line breaks and tables.</p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>How do I know if a PDF is scanned?</dt>
+  <dd>If you can't select individual words, or a search finds nothing, it's a scan.</dd>
+  <dt>What is OCR?</dt>
+  <dd>Optical character recognition: software that reads the letters in a picture and turns
+  them into editable text.</dd>
+  <dt>What is the best free way to convert a scanned PDF to Word?</dt>
+  <dd>For most people, Google Docs: upload to Drive, then Open with → Google Docs, then
+  download as .docx.</dd>
+  <dt>Why does converting a scanned PDF to Word give me pictures?</dt>
+  <dd>Because the scan is a picture. Converters without OCR keep it as one.</dd>
+</dl>
+{% endblock %}

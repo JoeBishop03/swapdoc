@@ -1,0 +1,109 @@
+{% extends "guide_base.html" %}
+
+{% block guide_schema %},
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why did Word change from Calibri to Aptos?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Calibri had been the default since Office 2007 and was designed for the screens of that time. In 2023 Microsoft announced Aptos, a new sans-serif chosen after testing several candidates, as the default for Word, Outlook, PowerPoint and Excel in Microsoft 365." } },
+        { "@type": "Question", "name": "How do I change Word's default font back to Calibri?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On the Design tab, open Fonts and pick the Office 2013 - 2022 theme fonts (Calibri Light and Calibri), then click Set as Default on the Design tab and confirm. New documents will then use Calibri." } },
+        { "@type": "Question", "name": "What happens if I send an Aptos document to someone without Aptos?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Their computer substitutes a similar font, so line and page breaks can move. To avoid it, send a PDF, or use a font they will have, such as Calibri or Arial." } },
+        { "@type": "Question", "name": "Is Aptos a good font for a CV?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It's clear and modern, but send the CV as a PDF so the recipient sees Aptos as you intended. If you must send Word, Calibri or Arial are safer because every recipient will have them or an exact stand-in." } }
+      ]
+    }
+{% endblock %}
+
+{% block article %}
+<p class="lede"><strong>Quick answer:</strong> Aptos replaced Calibri as the default font in
+Microsoft 365 from late 2023. It's a little wider and more open than Calibri. The catch is
+that computers without Microsoft 365, and many converters, don't have Aptos, so your document
+can change when you share it. Send a PDF, or switch your default back to Calibri.</p>
+
+<h2>What changed</h2>
+<p>Calibri was the default font in Word, Outlook, Excel and PowerPoint for about 16 years, from
+Office 2007. In 2021 Microsoft commissioned five new fonts and asked users to try them in
+Microsoft 365. In July 2023 it announced the winner: <strong>Aptos</strong>, designed by Steve
+Matteson and tested under the name Bierstadt. It rolled out as the new default over the
+following months. Headings use a companion font, <strong>Aptos Display</strong>.</p>
+<p>If you start a new document in an up-to-date Microsoft 365 and see "Aptos (Body)" in the
+font box, that's why. Documents you made before keep their original fonts.</p>
+
+<h2>Aptos and Calibri side by side</h2>
+<table>
+  <thead><tr><th></th><th>Calibri</th><th>Aptos</th></tr></thead>
+  <tbody>
+    <tr><td>Default in Microsoft Office</td><td>2007 to 2023</td><td>From late 2023 (Microsoft 365)</td></tr>
+    <tr><td>Style</td><td>Rounded, humanist sans-serif</td><td>Crisp, neutral sans-serif</td></tr>
+    <tr><td>Width</td><td>Narrow: fits a lot on a line</td><td>Wider: the same text takes more room</td></tr>
+    <tr><td>Heading font</td><td>Calibri Light</td><td>Aptos Display</td></tr>
+    <tr><td>Exact free stand-in for converters</td><td>Yes (Carlito)</td><td>No; a close match is used</td></tr>
+    <tr><td>On older Office versions</td><td>Yes</td><td>Often not</td></tr>
+  </tbody>
+</table>
+
+<h2>The sharing problem</h2>
+<p>Fonts aren't stored inside a Word file; the document just names them. When someone opens
+your Aptos document on a computer without Aptos, such as an older Office, LibreOffice, or an
+online converter, their computer swaps in a similar font. Because the letters are a different
+width, lines break in different places and a carefully fitted one-page CV can run onto a
+second page.</p>
+<p>Calibri doesn't have this problem to the same degree. Almost every computer has it, and
+where it's missing there's a free font called Carlito with identical letter widths, so the
+layout holds.</p>
+<p>We saw this in our own testing. Converting an Aptos document with SwapDoc's
+<a href="/word-to-pdf">Word to PDF converter</a> uses Liberation Sans, a close match, but
+lines can still shift slightly. Calibri, by contrast, came out with identical line breaks. The
+full results are in <a href="/guides/why-fonts-change-in-pdf">Why your font changed when you
+converted to PDF</a>.</p>
+
+<h2>Which should you use?</h2>
+<ul>
+  <li><strong>Documents you'll send as PDFs:</strong> use Aptos if you like it. Make the PDF in
+  Word with <strong>File → Save As → PDF</strong> and the font travels inside the PDF.</li>
+  <li><strong>Word files you'll share or that others will edit:</strong> Calibri or Arial is
+  safer, because everyone has them or an exact stand-in.</li>
+  <li><strong>Documents with a set length:</strong> CVs, forms and anything with a page limit
+  should use whichever font you'll send in, and be checked in the final format.</li>
+  <li><strong>At work:</strong> follow your organisation's template. Many still use Calibri or
+  Arial for consistency.</li>
+</ul>
+
+<h2>How to switch your default back to Calibri</h2>
+<h3>Word for Windows</h3>
+<ol>
+  <li>Open a blank document and go to the <strong>Design</strong> tab.</li>
+  <li>Click <strong>Fonts</strong> and choose <strong>Office 2013 - 2022</strong> (Calibri
+  Light for headings, Calibri for text).</li>
+  <li>Click <strong>Set as Default</strong> on the same tab and confirm with
+  <strong>Yes</strong>.</li>
+</ol>
+<p>Alternatively, press <strong>Ctrl + D</strong> to open the Font box, choose Calibri, click
+<strong>Set As Default</strong> and pick <strong>All documents based on the Normal
+template</strong>. This changes body text only, not headings.</p>
+<h3>Word for Mac</h3>
+<p>Go to <strong>Format → Font</strong>, choose Calibri, click <strong>Default</strong> and
+confirm that you want to change the Normal template.</p>
+
+<h2>Changing an existing document from Aptos to Calibri</h2>
+<p>If the document uses Word's theme fonts (the font box shows "Aptos (Body)"), change them all
+at once with <strong>Design → Fonts → Office 2013 - 2022</strong>. If it shows plain "Aptos",
+select all with <strong>Ctrl + A</strong> and choose Calibri. Headings set separately may need
+the same treatment. Check page breaks afterwards: Calibri is narrower, so text will move up.</p>
+
+<h2>Frequently asked questions</h2>
+<dl class="faq">
+  <dt>Why did Word change from Calibri to Aptos?</dt>
+  <dd>Calibri had been the default since 2007. Microsoft chose Aptos in 2023 after testing
+  several new fonts with Microsoft 365 users.</dd>
+  <dt>How do I change Word's default font back to Calibri?</dt>
+  <dd>Design → Fonts → Office 2013 - 2022, then Set as Default.</dd>
+  <dt>What happens if I send an Aptos document to someone without Aptos?</dt>
+  <dd>Their computer substitutes a similar font and lines can move. Send a PDF to avoid it.</dd>
+  <dt>Is Aptos a good font for a CV?</dt>
+  <dd>Yes, if you send the CV as a PDF. See
+  {% if guide_live('cv-pdf-or-word') %}<a href="/guides/cv-pdf-or-word">Should you send your CV as a PDF or Word document?</a>{% else %}our guide to <a href="/guides/pdf-vs-word">PDF or Word</a>{% endif %}.</dd>
+</dl>
+{% endblock %}

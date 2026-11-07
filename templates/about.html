@@ -5,6 +5,11 @@
 an independent project, run from the UK, built to do one job well without getting in your
 way.</p>
 
+<h2 id="who">Who runs it</h2>
+<p>SwapDoc is built and run by <strong>{{ AUTHOR.name }}</strong>, who also writes the
+<a href="/guides">guides</a>. It's a one-person project, so if you email, the reply comes
+from the person who wrote the code.</p>
+
 <h2>Why it exists</h2>
 <p>Most people only need to convert a document now and then: a CV that has to be a PDF, a
 form that arrived as a PDF and needs editing, an old <code>.doc</code> from years ago. Many
@@ -21,6 +26,21 @@ converted file are deleted as soon as the download finishes. A clean-up process 
 removes anything left behind (for example, if you closed the page mid-conversion) within
 about ten minutes.</p>
 <p>Nobody reads your documents, and there's no account, so we never know who you are.</p>
+
+<h2 id="testing">How we test</h2>
+<p>Each converter page reports results from real conversions, not marketing claims. We build
+test documents packed with the things that usually go wrong: a dozen common fonts, tables with
+merged cells, pictures, links, headers and footers with page numbers, a landscape page,
+tracked changes, comments, accented letters, Chinese, Arabic and emoji. We run them through
+the live site and check the output with software that lists every font, link and page.</p>
+<p>When the results showed a problem, we fixed the converter. Our first test run, on
+{{ TESTED_LABEL }}, found that documents in fonts the server didn't have, including
+Aptos (Word's default since 2023), were printed in a serif font, and that Chinese, Japanese
+and most emoji came out as empty boxes. We added matching fonts and re-tested before
+publishing the results.</p>
+<p>The results are on the <a href="/word-to-pdf#tested">Word to PDF</a>,
+<a href="/pdf-to-word#tested">PDF to Word</a> and <a href="/doc-to-docx#tested">DOC ⇄ DOCX</a>
+pages.</p>
 
 <h2>What it can and can't do</h2>
 <ul>

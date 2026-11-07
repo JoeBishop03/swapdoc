@@ -6,6 +6,19 @@ description tags. Guides also need a template in templates/guides/<slug>.html.
 
 UPDATED = "2026-10-25"
 
+# Shown as the byline on every guide and on the About page.
+AUTHOR = {
+    "name": "Joe Bishop",
+    "url": "/about#who",
+    "bio": "Joe built and runs SwapDoc from the UK and writes its guides. SwapDoc's "
+           "converters are tested on real documents, and the results are published on "
+           "each converter page.",
+}
+
+# When the converter pages' test results were last re-run.
+TESTED = "2026-11-07"
+TESTED_LABEL = "7 November 2026"
+
 PAGES = {
     "/": {
         "template": "index.html",
@@ -13,7 +26,7 @@ PAGES = {
         "description": "Free online document converter: turn Word into PDF or PDF into "
                        "an editable Word doc. No sign-up, no watermark, and files are "
                        "deleted after download.",
-        "updated": "2026-10-31",
+        "updated": "2026-11-07",
     },
     "/word-to-pdf": {
         "template": "word_to_pdf.html",
@@ -21,21 +34,21 @@ PAGES = {
         "description": "Turn a Word document (.docx or .doc) into a PDF in seconds. "
                        "Free, no account, no watermark, and your file is deleted "
                        "after download.",
-        "updated": UPDATED,
+        "updated": "2026-11-07",
     },
     "/pdf-to-word": {
         "template": "pdf_to_word.html",
         "title": "PDF to Word Converter: Free & Editable | SwapDoc",
         "description": "Convert a PDF into an editable Word document (.docx) for free. "
                        "No sign-up or watermark, and files are deleted after download.",
-        "updated": UPDATED,
+        "updated": "2026-11-07",
     },
     "/doc-to-docx": {
         "template": "doc_to_docx.html",
         "title": "DOC to DOCX Converter (and DOCX to DOC): Free | SwapDoc",
         "description": "Convert old .doc Word files to .docx, or .docx back to .doc, free "
                        "online. No sign-up or watermark; files deleted after download.",
-        "updated": "2026-11-06",
+        "updated": "2026-11-07",
     },
     "/guides": {
         "template": "guides_index.html",
@@ -49,7 +62,7 @@ PAGES = {
         "title": "About SwapDoc",
         "description": "Who runs SwapDoc, how the free Word and PDF converter works, "
                        "and how it stays free.",
-        "updated": UPDATED,
+        "updated": "2026-11-07",
     },
     "/contact": {
         "template": "contact.html",
@@ -142,6 +155,150 @@ GUIDES = [
         "published": "2026-11-07",
         "updated": "2026-11-07",
         "release": "2026-11-07T08:00:00+00:00",   # 8am UK time (GMT in November)
+        "minutes": 6,
+    },
+    # --- November 2026 batch: 2 live at once, then Tuesdays and Fridays at 8am UK time ---
+    {
+        "slug": "why-fonts-change-in-pdf",
+        "title": "Why Your Font Changed When You Converted to PDF",
+        "short": "Why fonts change in a PDF",
+        "description": "Why a PDF can come out in a different font from your Word document, "
+                       "which fonts are safe, and four ways to keep your exact font.",
+        "summary": "Which fonts convert exactly, which get swapped, and how to keep yours.",
+        "published": "2026-11-07",
+        "updated": "2026-11-07",
+        "minutes": 6,
+    },
+    {
+        "slug": "remove-tracked-changes-before-pdf",
+        "title": "How to Remove Tracked Changes and Comments Before Making a PDF",
+        "title_tag": "Remove Tracked Changes and Comments Before a PDF | SwapDoc",
+        "short": "Removing tracked changes and comments",
+        "description": "Stop tracked changes and comments ending up in your PDF or shared "
+                       "file. Steps for Word on Windows and Mac, Google Docs and LibreOffice.",
+        "summary": "Accept changes, delete comments and clear hidden details before sharing.",
+        "published": "2026-11-07",
+        "updated": "2026-11-07",
+        "minutes": 5,
+    },
+    {
+        "slug": "aptos-vs-calibri",
+        "title": "Aptos vs Calibri: Word's New Default Font Explained",
+        "short": "Aptos vs Calibri",
+        "description": "Why Word switched from Calibri to Aptos, how the two fonts differ, "
+                       "what happens when you share an Aptos document, and how to switch back.",
+        "summary": "What changed, why it matters when you share files, and how to switch back.",
+        "published": "2026-11-10",
+        "updated": "2026-11-10",
+        "release": "2026-11-10T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "scanned-pdf-to-text",
+        "title": "How to Turn a Scanned PDF into Editable Text for Free",
+        "short": "Scanned PDF to editable text",
+        "description": "How to tell if a PDF is scanned, and five free ways to get editable "
+                       "text from it with OCR on Windows, Mac, iPhone, Android and online.",
+        "summary": "Free OCR with Google Docs, OneNote, Mac Preview and your phone.",
+        "published": "2026-11-13",
+        "updated": "2026-11-13",
+        "release": "2026-11-13T08:00:00+00:00",
+        "minutes": 6,
+    },
+    {
+        "slug": "cv-pdf-or-word",
+        "title": "Should You Send Your CV as a PDF or Word Document?",
+        "short": "CV: PDF or Word?",
+        "description": "When to send your CV as a PDF and when to send Word, what applicant "
+                       "tracking systems can read, and checks before you hit send.",
+        "summary": "The UK rule of thumb, what recruiters and tracking systems need, and checks.",
+        "published": "2026-11-17",
+        "updated": "2026-11-17",
+        "release": "2026-11-17T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "reduce-pdf-file-size",
+        "title": "How to Reduce a PDF's File Size for Email or Upload",
+        "short": "Making a PDF smaller",
+        "description": "Why PDFs get big and how to make them smaller for free, on Windows "
+                       "and Mac, without making the text blurry.",
+        "summary": "Shrink the pictures, re-export from Word, or compress on a Mac.",
+        "published": "2026-11-20",
+        "updated": "2026-11-20",
+        "release": "2026-11-20T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "reduce-word-file-size",
+        "title": "How to Make a Word Document Smaller",
+        "short": "Making a Word file smaller",
+        "description": "Find out what's making your Word document big and shrink it: "
+                       "compress pictures, drop embedded fonts and objects, and save as .docx.",
+        "summary": "Find what's taking the space, then shrink pictures, fonts and objects.",
+        "published": "2026-11-24",
+        "updated": "2026-11-24",
+        "release": "2026-11-24T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "open-docx-without-word",
+        "title": "How to Open a DOCX File Without Microsoft Word",
+        "short": "Opening DOCX without Word",
+        "description": "Six free ways to open, edit or print a .docx file without buying "
+                       "Microsoft Word, on Windows, Mac, Chromebook and phone.",
+        "summary": "Free options on every device, and which keeps formatting best.",
+        "published": "2026-11-27",
+        "updated": "2026-11-27",
+        "release": "2026-11-27T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "sign-a-pdf",
+        "title": "How to Sign a PDF for Free (Windows, Mac and Phone)",
+        "short": "Signing a PDF for free",
+        "description": "Add your signature to a PDF for free with Adobe Reader, Mac Preview, "
+                       "an iPhone or Android, plus when an electronic signature is enough.",
+        "summary": "Free ways to sign on any device, and when e-signatures are valid.",
+        "published": "2026-12-01",
+        "updated": "2026-12-01",
+        "release": "2026-12-01T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "password-protect-documents",
+        "title": "How to Password-Protect a Word Document or PDF",
+        "short": "Password-protecting documents",
+        "description": "Add a password to a Word document or PDF on Windows or Mac, the "
+                       "difference between locking and restricting editing, and safe sharing.",
+        "summary": "Proper encryption in Word, PDF and LibreOffice, and sharing the password.",
+        "published": "2026-12-04",
+        "updated": "2026-12-04",
+        "release": "2026-12-04T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "merge-pdf-files",
+        "title": "How to Merge PDF Files for Free",
+        "short": "Merging PDF files",
+        "description": "Combine several PDFs into one for free: built-in tools on Mac and "
+                       "iPhone, free apps for Windows, and merging Word files before converting.",
+        "summary": "Built-in tools on Mac and iPhone, free apps for Windows, and a Word trick.",
+        "published": "2026-12-08",
+        "updated": "2026-12-08",
+        "release": "2026-12-08T08:00:00+00:00",
+        "minutes": 5,
+    },
+    {
+        "slug": "accessible-pdf-from-word",
+        "title": "How to Make an Accessible PDF from a Word Document",
+        "short": "Making an accessible PDF",
+        "description": "Make a PDF that works with screen readers: headings, alt text, "
+                       "tables, links and the right way to save, with a checklist.",
+        "summary": "Seven fixes in Word, then save it the right way. Includes a checklist.",
+        "published": "2026-12-11",
+        "updated": "2026-12-11",
+        "release": "2026-12-11T08:00:00+00:00",
         "minutes": 6,
     },
 ]

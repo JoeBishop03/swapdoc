@@ -3,8 +3,15 @@ FROM python:3.12-slim
 # LibreOffice (headless) does the actual document conversion
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        libreoffice-writer libreoffice-core fonts-dejavu fonts-liberation fonts-crosextra-carlito fonts-crosextra-caladea && \
+        libreoffice-writer libreoffice-core \
+        fonts-dejavu fonts-liberation fonts-crosextra-carlito fonts-crosextra-caladea \
+        fonts-urw-base35 fonts-ebgaramond fonts-comic-neue \
+        fonts-noto-cjk fonts-noto-color-emoji && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Stand-ins for Microsoft fonts the server doesn't have (Aptos, Georgia, Verdana...)
+COPY fonts.conf /etc/fonts/local.conf
+RUN fc-cache -f
 
 WORKDIR /app
 COPY requirements.txt .
